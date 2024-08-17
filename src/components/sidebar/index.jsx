@@ -11,7 +11,7 @@ const Sidebar = ({ open, onClose }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Determine which routes to pass based on the current path
+  // Determine which routes to pass based on the current path for admin or emp
   const routesToPass =
     currentPath.startsWith("/admin") ? routes : 
     currentPath.startsWith("/emp") ? routesForEmp : 
