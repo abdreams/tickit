@@ -3,7 +3,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "components/navbar";
 import Sidebar from "components/sidebar";
 import Footer from "components/footer/Footer";
-import routes from "routes.js";
+import routesForEmp from "routesForEmp.js";
 
 export default function Emp(props) {
   const { ...rest } = props;
@@ -17,35 +17,35 @@ export default function Emp(props) {
     );
   }, []);
   React.useEffect(() => {
-    getActiveRoute(routes);
+    getActiveRoute(routesForEmp);
   }, [location.pathname]);
 
-  const getActiveRoute = (routes) => {
+  const getActiveRoute = (routesForEmp) => {
     let activeRoute = "Main Dashboard";
-    for (let i = 0; i < routes.length; i++) {
+    for (let i = 0; i < routesForEmp.length; i++) {
       if (
         window.location.href.indexOf(
-          routes[i].layout + "/" + routes[i].path
+          routesForEmp[i].layout + "/" + routesForEmp[i].path
         ) !== -1
       ) {
-        setCurrentRoute(routes[i].name);
+        setCurrentRoute(routesForEmp[i].name);
       }
     }
     return activeRoute;
   };
-  const getActiveNavbar = (routes) => {
+  const getActiveNavbar = (routesForEmp) => {
     let activeNavbar = false;
-    for (let i = 0; i < routes.length; i++) {
+    for (let i = 0; i < routesForEmp.length; i++) {
       if (
-        window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
+        window.location.href.indexOf(routesForEmp[i].layout + routesForEmp[i].path) !== -1
       ) {
-        return routes[i].secondary;
+        return routesForEmp[i].secondary;
       }
     }
     return activeNavbar;
   };
-  const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
+  const getRoutes = (routesForEmp) => {
+    return routesForEmp.map((prop, key) => {
       if (prop.layout === "/emp") {
         return (
           <Route path={`/${prop.path}`} element={prop.component} key={key} />
@@ -72,12 +72,12 @@ export default function Emp(props) {
               onOpenSidenav={() => setOpen(true)}
               logoText={"Horizon UI Tailwind React"}
               brandText={currentRoute}
-              secondary={getActiveNavbar(routes)}
+              secondary={getActiveNavbar(routesForEmp)}
               {...rest}
             />
             <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
               <Routes>
-                {getRoutes(routes)}
+                {getRoutes(routesForEmp)}
 
                 <Route
                   path="/"

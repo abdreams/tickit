@@ -1,12 +1,13 @@
 import React from "react";
 
-// Admin Imports
+// Emp Imports
 
-import MainDashboard from "views/admin/default";
-import NFTMarketplace from "views/admin/marketplace";
-import Profile from "views/admin/profile";
-import DataTables from "views/admin/tables";
+import MainDashboard from "views/emp/default";
+import NFTMarketplace from "views/emp/marketplace";
+import Profile from "views/emp/profile";
+import DataTables from "views/emp/tables";
 import RTLDefault from "views/rtl/default";
+
 
 
 // Auth Imports
@@ -26,17 +27,17 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { Calendar } from "react-calendar";
 
 
-const routes = [
+const routesForEmp = [
   {
     name: "Dashboard",
-    layout: "/admin",
+    layout: "/emp",
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
   },
   {
     name: "Projects",
-    layout: "/admin",
+    layout: "/emp",
     path: "projects",
     icon: <GoProjectRoadmap className="h-6 w-6" />,
     component: <NFTMarketplace />,
@@ -44,28 +45,28 @@ const routes = [
   },
   {
     name: "Work Board",
-    layout: "/admin",
+    layout: "/emp",
     icon: <LuKanbanSquare className="h-6 w-6" />,
     path: "work-board",
     component: <DataTables />,
   },
   {
     name: "Calendar",
-    layout: "/admin",
+    layout: "/emp",
     icon: <FaRegCalendarAlt className="h-6 w-6" />,
     path: "calendar",
     component: <Calendar />,
   },
   {
     name: "Teams",
-    layout: "/admin",
+    layout: "/emp",
     icon: <IoPeopleOutline className="h-6 w-6" />,
     path: "teams",
     component: <DataTables />,
   },
   {
     name: "Profile",
-    layout: "/admin",
+    layout: "/emp",
     path: "profile",
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />,
@@ -77,13 +78,7 @@ const routes = [
     icon: <MdLock className="h-6 w-6" />,
     component: <SignIn />,
   },
-  // {
-  //   name: "emp test",
-  //   layout: "/emp",
-  //   path: "test",
-  //   icon: <MdLock className="h-6 w-6" />,
-  //   component: <EmpMainDashboard />,
-  // },
+
   {
     name: "RTL Admin",
     layout: "/rtl",
@@ -92,4 +87,4 @@ const routes = [
     component: <RTLDefault />,
   },
 ];
-export default routes;
+export default routesForEmp;
