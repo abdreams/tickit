@@ -36,10 +36,10 @@ const ProjectsPage = () => {
       {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Description
+            Team Assigned
           </p>
         ),
-        accessor: "description",
+        accessor: "team_assigned",
       },
       {
         Header: () => (

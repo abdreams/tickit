@@ -1,7 +1,7 @@
 [
     {
       "project_name": "Project Alpha",
-      "description": "Initial project setup",
+      "team_assigned": "Initial project setup",
       "start_date": "2024-01-01",
       "end_date": "2024-06-30",
       "status": "In Progress",
@@ -10,7 +10,7 @@
     },
     {
       "project_name": "Project Beta",
-      "description": "Development of core features",
+      "team_assigned": "Development of core features",
       "start_date": "2023-05-15",
       "end_date": "2023-12-31",
       "status": "Completed",
@@ -19,7 +19,7 @@
     },
     {
       "project_name": "Project Gamma",
-      "description": "UI/UX Design",
+      "team_assigned": "UI/UX Design",
       "start_date": "2024-02-01",
       "end_date": "2024-08-01",
       "status": "Not Started",
@@ -28,7 +28,7 @@
     },
     {
       "project_name": "Project Delta",
-      "description": "Backend Development",
+      "team_assigned": "Backend Development",
       "start_date": "2023-03-10",
       "end_date": "2023-09-25",
       "status": "In Progress",
@@ -37,7 +37,7 @@
     },
     {
       "project_name": "Project Epsilon",
-      "description": "Mobile App Development",
+      "team_assigned": "Mobile App Development",
       "start_date": "2024-04-15",
       "end_date": "2024-12-31",
       "status": "On Hold",
@@ -46,7 +46,7 @@
     },
     {
         "project_name": "Project Zeta",
-        "description": "Security Enhancements",
+        "team_assigned": "Security Enhancements",
         "start_date": "2024-05-01",
         "end_date": "2024-10-15",
         "status": "In Progress",
@@ -55,7 +55,7 @@
     },
     {
         "project_name": "Project Eta",
-        "description": "Database Optimization",
+        "team_assigned": "Database Optimization",
         "start_date": "2023-11-01",
         "end_date": "2024-05-01",
         "status": "Completed",
@@ -64,7 +64,7 @@
     },
     {
         "project_name": "Project Theta",
-        "description": "API Development",
+        "team_assigned": "API Development",
         "start_date": "2023-09-01",
         "end_date": "2024-01-15",
         "status": "In Progress",
@@ -73,7 +73,7 @@
     },
     {
         "project_name": "Project Iota",
-        "description": "Data Migration",
+        "team_assigned": "Data Migration",
         "start_date": "2024-06-01",
         "end_date": "2024-12-01",
         "status": "Not Started",
@@ -82,7 +82,7 @@
     },
     {
         "project_name": "Project Kappa",
-        "description": "User Authentication",
+        "team_assigned": "User Authentication",
         "start_date": "2024-03-01",
         "end_date": "2024-08-31",
         "status": "On Hold",
@@ -91,7 +91,7 @@
     },
     {
         "project_name": "Project Lambda",
-        "description": "Performance Tuning",
+        "team_assigned": "Performance Tuning",
         "start_date": "2024-01-15",
         "end_date": "2024-07-15",
         "status": "Completed",
@@ -100,7 +100,7 @@
     },
     {
         "project_name": "Project Mu",
-        "description": "Feature Enhancement",
+        "team_assigned": "Feature Enhancement",
         "start_date": "2023-12-01",
         "end_date": "2024-05-15",
         "status": "In Progress",
@@ -109,7 +109,7 @@
     },
     {
         "project_name": "Project Nu",
-        "description": "API Integration",
+        "team_assigned": "API Integration",
         "start_date": "2023-07-01",
         "end_date": "2023-11-30",
         "status": "Completed",
@@ -118,7 +118,7 @@
     },
     {
         "project_name": "Project Xi",
-        "description": "UI Improvements",
+        "team_assigned": "UI Improvements",
         "start_date": "2024-04-01",
         "end_date": "2024-09-30",
         "status": "Not Started",
@@ -127,7 +127,7 @@
     },
     {
         "project_name": "Project Omicron",
-        "description": "Testing Framework",
+        "team_assigned": "Testing Framework",
         "start_date": "2023-10-01",
         "end_date": "2024-02-01",
         "status": "In Progress",
@@ -136,7 +136,7 @@
     },
     {
         "project_name": "Project Pi",
-        "description": "User Training",
+        "team_assigned": "User Training",
         "start_date": "2024-02-15",
         "end_date": "2024-08-01",
         "status": "On Hold",
@@ -145,7 +145,7 @@
     },
     {
         "project_name": "Project Rho",
-        "description": "Infrastructure Upgrade",
+        "team_assigned": "Infrastructure Upgrade",
         "start_date": "2023-06-01",
         "end_date": "2023-12-31",
         "status": "Completed",
@@ -154,7 +154,7 @@
     },
     {
         "project_name": "Project Sigma",
-        "description": "Customer Feedback Analysis",
+        "team_assigned": "Customer Feedback Analysis",
         "start_date": "2024-01-01",
         "end_date": "2024-06-01",
         "status": "In Progress",
@@ -163,7 +163,7 @@
     },
     {
         "project_name": "Project Tau",
-        "description": "Frontend Overhaul",
+        "team_assigned": "Frontend Overhaul",
         "start_date": "2024-03-15",
         "end_date": "2024-09-01",
         "status": "Not Started",
@@ -172,7 +172,7 @@
     },
     {
         "project_name": "Project Upsilon",
-        "description": "Document Management System",
+        "team_assigned": "Document Management System",
         "start_date": "2023-11-15",
         "end_date": "2024-06-15",
         "status": "On Hold",
@@ -181,7 +181,7 @@
     },
     {
         "project_name": "Project Phi",
-        "description": "Cross-platform Compatibility",
+        "team_assigned": "Cross-platform Compatibility",
         "start_date": "2024-04-01",
         "end_date": "2024-10-31",
         "status": "In Progress",
