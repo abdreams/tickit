@@ -1,0 +1,192 @@
+[
+    {
+      "project_name": "Project Alpha",
+      "description": "Initial project setup",
+      "start_date": "2024-01-01",
+      "end_date": "2024-06-30",
+      "status": "In Progress",
+      "created_by": "John Doe",
+      "number_of_tasks": 12
+    },
+    {
+      "project_name": "Project Beta",
+      "description": "Development of core features",
+      "start_date": "2023-05-15",
+      "end_date": "2023-12-31",
+      "status": "Completed",
+      "created_by": "Jane Smith",
+      "number_of_tasks": 20
+    },
+    {
+      "project_name": "Project Gamma",
+      "description": "UI/UX Design",
+      "start_date": "2024-02-01",
+      "end_date": "2024-08-01",
+      "status": "Not Started",
+      "created_by": "Alice Johnson",
+      "number_of_tasks": 8
+    },
+    {
+      "project_name": "Project Delta",
+      "description": "Backend Development",
+      "start_date": "2023-03-10",
+      "end_date": "2023-09-25",
+      "status": "In Progress",
+      "created_by": "Bob Brown",
+      "number_of_tasks": 15
+    },
+    {
+      "project_name": "Project Epsilon",
+      "description": "Mobile App Development",
+      "start_date": "2024-04-15",
+      "end_date": "2024-12-31",
+      "status": "On Hold",
+      "created_by": "Charlie White",
+      "number_of_tasks": 25
+    },
+    {
+        "project_name": "Project Zeta",
+        "description": "Security Enhancements",
+        "start_date": "2024-05-01",
+        "end_date": "2024-10-15",
+        "status": "In Progress",
+        "created_by": "Daniel Green",
+        "number_of_tasks": 18
+    },
+    {
+        "project_name": "Project Eta",
+        "description": "Database Optimization",
+        "start_date": "2023-11-01",
+        "end_date": "2024-05-01",
+        "status": "Completed",
+        "created_by": "Emily Clark",
+        "number_of_tasks": 22
+    },
+    {
+        "project_name": "Project Theta",
+        "description": "API Development",
+        "start_date": "2023-09-01",
+        "end_date": "2024-01-15",
+        "status": "In Progress",
+        "created_by": "Frank Harris",
+        "number_of_tasks": 14
+    },
+    {
+        "project_name": "Project Iota",
+        "description": "Data Migration",
+        "start_date": "2024-06-01",
+        "end_date": "2024-12-01",
+        "status": "Not Started",
+        "created_by": "Grace Lewis",
+        "number_of_tasks": 10
+    },
+    {
+        "project_name": "Project Kappa",
+        "description": "User Authentication",
+        "start_date": "2024-03-01",
+        "end_date": "2024-08-31",
+        "status": "On Hold",
+        "created_by": "Hannah Walker",
+        "number_of_tasks": 12
+    },
+    {
+        "project_name": "Project Lambda",
+        "description": "Performance Tuning",
+        "start_date": "2024-01-15",
+        "end_date": "2024-07-15",
+        "status": "Completed",
+        "created_by": "Isaac Hall",
+        "number_of_tasks": 16
+    },
+    {
+        "project_name": "Project Mu",
+        "description": "Feature Enhancement",
+        "start_date": "2023-12-01",
+        "end_date": "2024-05-15",
+        "status": "In Progress",
+        "created_by": "Jessica King",
+        "number_of_tasks": 20
+    },
+    {
+        "project_name": "Project Nu",
+        "description": "API Integration",
+        "start_date": "2023-07-01",
+        "end_date": "2023-11-30",
+        "status": "Completed",
+        "created_by": "Kevin Young",
+        "number_of_tasks": 15
+    },
+    {
+        "project_name": "Project Xi",
+        "description": "UI Improvements",
+        "start_date": "2024-04-01",
+        "end_date": "2024-09-30",
+        "status": "Not Started",
+        "created_by": "Lily Scott",
+        "number_of_tasks": 13
+    },
+    {
+        "project_name": "Project Omicron",
+        "description": "Testing Framework",
+        "start_date": "2023-10-01",
+        "end_date": "2024-02-01",
+        "status": "In Progress",
+        "created_by": "Mason Wright",
+        "number_of_tasks": 19
+    },
+    {
+        "project_name": "Project Pi",
+        "description": "User Training",
+        "start_date": "2024-02-15",
+        "end_date": "2024-08-01",
+        "status": "On Hold",
+        "created_by": "Nora Adams",
+        "number_of_tasks": 11
+    },
+    {
+        "project_name": "Project Rho",
+        "description": "Infrastructure Upgrade",
+        "start_date": "2023-06-01",
+        "end_date": "2023-12-31",
+        "status": "Completed",
+        "created_by": "Oscar Martinez",
+        "number_of_tasks": 30
+    },
+    {
+        "project_name": "Project Sigma",
+        "description": "Customer Feedback Analysis",
+        "start_date": "2024-01-01",
+        "end_date": "2024-06-01",
+        "status": "In Progress",
+        "created_by": "Paula Thompson",
+        "number_of_tasks": 17
+    },
+    {
+        "project_name": "Project Tau",
+        "description": "Frontend Overhaul",
+        "start_date": "2024-03-15",
+        "end_date": "2024-09-01",
+        "status": "Not Started",
+        "created_by": "Quinn Davis",
+        "number_of_tasks": 14
+    },
+    {
+        "project_name": "Project Upsilon",
+        "description": "Document Management System",
+        "start_date": "2023-11-15",
+        "end_date": "2024-06-15",
+        "status": "On Hold",
+        "created_by": "Riley Evans",
+        "number_of_tasks": 21
+    },
+    {
+        "project_name": "Project Phi",
+        "description": "Cross-platform Compatibility",
+        "start_date": "2024-04-01",
+        "end_date": "2024-10-31",
+        "status": "In Progress",
+        "created_by": "Sophia Hernandez",
+        "number_of_tasks": 28
+    }
+  ]
+  

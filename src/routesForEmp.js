@@ -4,6 +4,7 @@ import React from "react";
 
 import MainDashboard from "views/emp/default";
 import NFTMarketplace from "views/emp/marketplace";
+import ProjectsPage from "views/emp/projects";
 import Profile from "views/emp/profile";
 import DataTables from "views/emp/tables";
 import RTLDefault from "views/rtl/default";
@@ -27,6 +28,7 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { Calendar } from "react-calendar";
 
 
+
 const routesForEmp = [
   {
     name: "Dashboard",
@@ -40,7 +42,7 @@ const routesForEmp = [
     layout: "/emp",
     path: "projects",
     icon: <GoProjectRoadmap className="h-6 w-6" />,
-    component: <NFTMarketplace />,
+    component: <ProjectsPage />,
     secondary: true,
   },
   {
