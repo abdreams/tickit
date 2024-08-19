@@ -119,7 +119,7 @@ const ProjectsPage = () => {
           placeholder="Search projects..."
         />
         <div className="flex w-full space-x-4 md:w-auto">
-          <select
+          <select       
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
             className="w-full rounded-md border p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white md:w-auto"

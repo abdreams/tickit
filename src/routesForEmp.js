@@ -26,6 +26,7 @@ import { LuKanbanSquare } from "react-icons/lu";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
 import { Calendar } from "react-calendar";
+import KanbanBoard from "views/emp/kanban";
 
 
 
@@ -50,7 +51,7 @@ const routesForEmp = [
     layout: "/emp",
     icon: <LuKanbanSquare className="h-6 w-6" />,
     path: "work-board",
-    component: <DataTables />,
+    component: <KanbanBoard />,
   },
   {
     name: "Calendar",
