@@ -1,1 +1,1 @@
-console.log("user controller")
+console.log('user controller')

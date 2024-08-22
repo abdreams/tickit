@@ -1,0 +1,225 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// Enums 
+
+enum Role {
+  Admin
+  ProjectManager
+  TeamLead
+  Employee
+}
+
+enum ProjectStatus {
+  NotStarted
+  InProgress
+  Completed
+  OnHold
+}
+
+enum TaskStatus {
+  Assigned
+  InProgress
+  Completed
+}
+
+enum TaskPriority {
+  Low
+  Medium
+  High
+  Urgent
+}
+
+enum IssueStatus {
+  Open
+  InProgress
+  Resolved
+  Closed
+}
+
+enum IssuePriority {
+  Low
+  Medium
+  High
+  Critical
+}
+
+enum TeamRole {
+  TeamLead
+  Member
+}
+
+
+// 1. Companies 
+
+model Company {
+  company_id String @id @default(uuid())
+  company_name String
+  industry String
+  domain String @unique
+  address String?
+  phone_number String?
+  website String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  users User[]
+  projects Project[]
+  teams Team[]
+  tasks Task[]
+  issues Issue[]
+  attachments Attachment[]
+}
+
+// 2. Users 
+
+model User {
+  user_id String @id @default(uuid())
+  first_name String
+  last_name String
+  email String @unique
+  password_hash String
+  role Role
+  profile_picture String?
+  company_id String
+  company Company @relation(fields: [company_id], references: [company_id])
+  projects Project[] @relation("CreatedProjects")
+  teams Team[] @relation("CreatedTeams")
+  tasks Task[] @relation("AssignedTasks")
+  created_tasks Task[] @relation("CreatedTasks")
+  comments Comment[]
+  issues_reported Issue[] @relation("ReportedIssues")
+  issues_assigned Issue[] @relation("AssignedIssues")
+  attachments Attachment[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  TeamMember TeamMember[]
+}
+
+// 3. Projects 
+
+model Project {
+  project_id String @id @default(uuid())
+  project_name String
+  description String
+  start_date DateTime
+  end_date DateTime
+  status ProjectStatus
+  company_id String
+  company Company @relation(fields: [company_id], references: [company_id])
+  created_by String
+  creator User @relation("CreatedProjects", fields: [created_by], references: [user_id])
+  tasks Task[]
+  issues Issue[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+// 4. Teams 
+
+model Team {
+  team_id String @id @default(uuid())
+  team_name String
+  description String
+  company_id String
+  company Company @relation(fields: [company_id], references: [company_id])
+  created_by String
+  creator User @relation("CreatedTeams", fields: [created_by], references: [user_id])
+  members TeamMember[]
+  tasks Task[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+// Pivot Table: team_members 
+
+model TeamMember {
+  team_id String
+  user_id String
+  role TeamRole
+  team Team @relation(fields: [team_id], references: [team_id])
+  user User @relation(fields: [user_id], references: [user_id])
+  @@id([team_id, user_id])
+}
+
+// 5. Tasks 
+
+model Task {
+  task_id String @id @default(uuid())
+  task_title String
+  description String
+  status TaskStatus
+  priority TaskPriority
+  assigned_to String
+  assignee User @relation("AssignedTasks", fields: [assigned_to], references: [user_id])
+  project_id String
+  project Project @relation(fields: [project_id], references: [project_id])
+  team_id String?
+  team Team? @relation(fields: [team_id], references: [team_id])
+  company_id String
+  company Company @relation(fields: [company_id], references: [company_id])
+  created_by String
+  creator User @relation("CreatedTasks", fields: [created_by], references: [user_id])
+  comments Comment[]
+  attachments Attachment[]
+  due_date DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+// 6. Comments 
+
+model Comment {
+  comment_id String @id @default(uuid())
+  task_id String
+  task Task @relation(fields: [task_id], references: [task_id])
+  user_id String
+  user User @relation(fields: [user_id], references: [user_id])
+  comment_text String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+// 7. Issues 
+
+model Issue {
+  issue_id String @id @default(uuid())
+  issue_title String
+  description String
+  status IssueStatus
+  priority IssuePriority
+  project_id String
+  project Project @relation(fields: [project_id], references: [project_id])
+  reported_by String
+  reporter User @relation("ReportedIssues", fields: [reported_by], references: [user_id])
+  assigned_to String
+  assignee User @relation("AssignedIssues", fields: [assigned_to], references: [user_id])
+  company_id String
+  company Company @relation(fields: [company_id], references: [company_id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+// 8. Attachments 
+
+model Attachment {
+  attachment_id String @id @default(uuid())
+  task_id String
+  task Task @relation(fields: [task_id], references: [task_id])
+  file_name String
+  file_path String
+  uploaded_by String
+  uploader User @relation(fields: [uploaded_by], references: [user_id])
+  company_id String
+  company Company @relation(fields: [company_id], references: [company_id])
+  uploaded_at DateTime @default(now())
+}
+
+
