@@ -5,9 +5,27 @@ import KanbanCard from './card';
 
 const initialData = {
   tasks: {
-    'task-1': { id: 'task-1', content: 'Task 1' },
-    'task-2': { id: 'task-2', content: 'Task 2' },
-    'task-3': { id: 'task-3', content: 'Task 3' },
+    'task-1': {
+    id: 'NUC-213',
+    content: 'Update T&C copy with v1.9...',
+    projectName: 'Project Name',
+    priority: 'High',
+    assigneeProfile: 'https://cdn.pixabay.com/photo/2023/04/21/15/42/portrait-7942151_640.jpg',
+  },
+   'task-2': {
+    id: 'NUC-214',
+    content: 'Update T&C copy with v1.9...',
+    projectName: 'Project Name',
+    priority: 'Low',
+    assigneeProfile: 'https://i.pinimg.com/236x/a7/da/74/a7da745a7bab241d4ef4c389cd898d26.jpg',
+  },
+    'task-3': {
+    id: 'NUC-215',
+    content: 'Update T&C copy with v1.9...',
+    projectName: 'Project Name',
+    priority: 'Medium',
+    assigneeProfile: '/path/to/profile.jpg',
+  },
   },
   columns: {
     'column-1': {
