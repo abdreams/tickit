@@ -1,30 +1,31 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import KanbanCard from './card';
+import TaskModal from './modal';
 
 
 const initialData = {
   tasks: {
     'task-1': {
-    id: 'NUC-213',
+    id: 'task-1',
     content: 'Update T&C copy with v1.9...',
-    projectName: 'Project Name',
+    projectName: 'Project Alpha',
     priority: 'High',
     assigneeProfile: 'https://cdn.pixabay.com/photo/2023/04/21/15/42/portrait-7942151_640.jpg',
   },
    'task-2': {
-    id: 'NUC-214',
-    content: 'Update T&C copy with v1.9...',
-    projectName: 'Project Name',
+    id: 'task-2',
+    content: 'Push APIs to production...',
+    projectName: 'Project Beta',
     priority: 'Low',
     assigneeProfile: 'https://i.pinimg.com/236x/a7/da/74/a7da745a7bab241d4ef4c389cd898d26.jpg',
   },
     'task-3': {
-    id: 'NUC-215',
-    content: 'Update T&C copy with v1.9...',
-    projectName: 'Project Name',
+    id: 'task-3',
+    content: 'Configure routing for new...',
+    projectName: 'Project Gamma',
     priority: 'Medium',
-    assigneeProfile: '/path/to/profile.jpg',
+    assigneeProfile: 'https://i.pinimg.com/236x/a7/da/74/a7da745a7bab241d4ef4c389cd898d26.jpg',
   },
   },
   columns: {
@@ -49,6 +50,8 @@ const initialData = {
 
 const KanbanBoard = () => {
   const [data, setData] = useState(initialData);
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
@@ -107,8 +110,14 @@ const KanbanBoard = () => {
       }));
     }
   };
+  const handleCardClick = (task) => {
+    console.log(task);
+    setSelectedTask(task);
+    setIsModalOpen(true);
+  };
 
   return (
+    <div>
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="  flex space-x-4 w-full h-full mt-4 ">
         {data.columnOrder.map((columnId) => {
@@ -128,12 +137,15 @@ const KanbanBoard = () => {
                   </h3>
                   {tasks.map((task, index) => (
                     <Draggable
-                      key={task.id}
-                      draggableId={task.id}
+                      key={task?.id}
+                      draggableId={task?.id}
                       index={index}
                     >
                       {(provided) => (
-                        <KanbanCard task={task} provided={provided} />
+                        <div onClick={() => handleCardClick(task)}>
+
+                          <KanbanCard task={task} provided={provided} />
+                        </div>
                       )}
                     </Draggable>
                   ))}
@@ -145,6 +157,12 @@ const KanbanBoard = () => {
         })}
       </div>
     </DragDropContext>
+    <TaskModal
+    task={selectedTask}
+    isOpen={isModalOpen}
+    onClose={() => setIsModalOpen(false)}
+  />
+  </div>
   );
 };
 
