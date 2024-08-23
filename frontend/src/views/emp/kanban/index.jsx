@@ -119,8 +119,8 @@ const KanbanBoard = () => {
   return (
     <div>
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="  flex space-x-4 w-full h-full mt-4 ">
-        {data.columnOrder.map((columnId) => {
+    <div className="flex flex-col md:flex-row md:space-x-4 w-full h-full mt-4">
+    {data.columnOrder.map((columnId) => {
           const column = data.columns[columnId];
           const tasks = column.taskIds.map((taskId) => data.tasks[taskId]);
 
@@ -128,8 +128,8 @@ const KanbanBoard = () => {
             <Droppable droppableId={column.id} key={column.id}>
               {(provided) => (
                 <div
-                  className=" flex-1 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg w-64"
-                  {...provided.droppableProps}
+                className="mb-4 md:mb-0 flex-1 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg w-full"
+                {...provided.droppableProps}
                   ref={provided.innerRef}
                 >
                   <h3 className="text-xl font-bold mb-4 dark:text-white">
