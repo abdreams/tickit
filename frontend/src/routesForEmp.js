@@ -3,30 +3,27 @@ import React from "react";
 // Emp Imports
 
 import MainDashboard from "views/emp/default";
-import NFTMarketplace from "views/emp/marketplace";
 import ProjectsPage from "views/emp/projects";
 import Profile from "views/emp/profile";
 import DataTables from "views/emp/tables";
-import RTLDefault from "views/rtl/default";
 
 
 
 // Auth Imports
-import SignIn from "views/auth/SignIn";
+
 
 // Icon Imports
 import {
   MdHome,
   MdPerson,
-  MdLock,
 } from "react-icons/md";
 
 import { GoProjectRoadmap } from "react-icons/go";
 import { LuKanbanSquare } from "react-icons/lu";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
-import { Calendar } from "react-calendar";
 import KanbanBoard from "views/emp/kanban";
+import CalendarPage from "views/calendar";
 
 
 
@@ -58,7 +55,7 @@ const routesForEmp = [
     layout: "/emp",
     icon: <FaRegCalendarAlt className="h-6 w-6" />,
     path: "calendar",
-    component: <Calendar />,
+    component: <CalendarPage />,
   },
   {
     name: "Teams",
@@ -74,6 +71,7 @@ const routesForEmp = [
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />,
   },
+<<<<<<< HEAD
   // {
   //   name: "Sign In",
   //   layout: "/auth",
@@ -89,5 +87,8 @@ const routesForEmp = [
   //   icon: <MdHome className="h-6 w-6" />,
   //   component: <RTLDefault />,
   // },
+=======
+
+>>>>>>> 14fdd720b1efa8f3346541eca94934d3cb6a963c
 ];
 export default routesForEmp;
