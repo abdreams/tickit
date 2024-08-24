@@ -3,22 +3,19 @@ import React from "react";
 // Emp Imports
 
 import MainDashboard from "views/emp/default";
-import NFTMarketplace from "views/emp/marketplace";
 import ProjectsPage from "views/emp/projects";
 import Profile from "views/emp/profile";
 import DataTables from "views/emp/tables";
-import RTLDefault from "views/rtl/default";
 
 
 
 // Auth Imports
-import SignIn from "views/auth/SignIn";
+
 
 // Icon Imports
 import {
   MdHome,
   MdPerson,
-  MdLock,
 } from "react-icons/md";
 
 import { GoProjectRoadmap } from "react-icons/go";

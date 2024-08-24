@@ -1,5 +1,5 @@
-import Footer from "components/footer/FooterAuthDefault";
-import { Link, Routes, Route, Navigate } from "react-router-dom";
+
+import { Routes, Route, Navigate } from "react-router-dom";
 import routes from "routes.js";
 import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 
