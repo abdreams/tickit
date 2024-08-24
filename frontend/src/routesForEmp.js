@@ -25,8 +25,8 @@ import { GoProjectRoadmap } from "react-icons/go";
 import { LuKanbanSquare } from "react-icons/lu";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
-import { Calendar } from "react-calendar";
 import KanbanBoard from "views/emp/kanban";
+import CalendarPage from "views/calendar";
 
 
 
@@ -58,7 +58,7 @@ const routesForEmp = [
     layout: "/emp",
     icon: <FaRegCalendarAlt className="h-6 w-6" />,
     path: "calendar",
-    component: <Calendar />,
+    component: <CalendarPage />,
   },
   {
     name: "Teams",
@@ -74,27 +74,6 @@ const routesForEmp = [
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />,
   },
-  // {
-  //   name: "Sign In",
-  //   layout: "/auth",
-  //   path: "sign-in",
-  //   icon: <MdLock className="h-6 w-6" />,
-  //   component: <SignIn />,
-  // },
-  // {
-  //   name: "Sign In",
-  //   layout: "/auth",
-  //   path: "sign-in",
-  //   icon: <MdLock className="h-6 w-6" />,
-  //   component: <SignIn />,
-  // },
 
-  // {
-  //   name: "RTL Admin",
-  //   layout: "/rtl",
-  //   path: "rtl",
-  //   icon: <MdHome className="h-6 w-6" />,
-  //   component: <RTLDefault />,
-  // },
 ];
 export default routesForEmp;
