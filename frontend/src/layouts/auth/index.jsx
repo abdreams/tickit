@@ -1,7 +1,8 @@
 import Footer from "components/footer/FooterAuthDefault";
 import { Link, Routes, Route, Navigate } from "react-router-dom";
-import routes from "routes.js";
+import routes from "routes.js"; // it's an array of object of routes
 import FixedPlugin from "components/fixedPlugin/FixedPlugin";
+import SignUp from "views/auth/SignUp";
 
 export default function Auth() {
   const getRoutes = (routes) => {
@@ -18,7 +19,7 @@ export default function Auth() {
 
   document.documentElement.dir = "ltr";
   return (
-    <div className="min-h-screen w-full !bg-white dark:!bg-navy-900">
+    <div className="min-h-screen w-full !bg-gray-100 dark:!bg-navy-900">
       <FixedPlugin />
       <main className="mx-auto flex min-h-screen w-full items-center justify-center">
         <div className="flex flex-col w-full max-w-[420px]">
@@ -41,10 +42,10 @@ export default function Auth() {
           </Link> */}
           <Routes>
             {getRoutes(routes)}
-            <Route
+            {/* <Route
               path="/"
               element={<Navigate to="/auth/sign-in" replace />}
-            />
+            /> */}
           </Routes>
           {/* <Footer /> */}
         </div>
