@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import Footer from "components/footer/FooterAuthDefault";
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 import routes from "routes.js"; // it's an array of object of routes
-=======
-
-import { Routes, Route, Navigate } from "react-router-dom";
-import routes from "routes.js";
->>>>>>> 14fdd720b1efa8f3346541eca94934d3cb6a963c
 import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 import SignUp from "views/auth/SignUp";
 
