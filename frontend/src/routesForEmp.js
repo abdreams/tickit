@@ -71,7 +71,6 @@ const routesForEmp = [
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />,
   },
-<<<<<<< HEAD
   // {
   //   name: "Sign In",
   //   layout: "/auth",
@@ -87,8 +86,5 @@ const routesForEmp = [
   //   icon: <MdHome className="h-6 w-6" />,
   //   component: <RTLDefault />,
   // },
-=======
-
->>>>>>> 14fdd720b1efa8f3346541eca94934d3cb6a963c
 ];
 export default routesForEmp;
