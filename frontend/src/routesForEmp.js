@@ -22,8 +22,11 @@ import { GoProjectRoadmap } from "react-icons/go";
 import { LuKanbanSquare } from "react-icons/lu";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
+import { MdOutlineTaskAlt } from "react-icons/md";
+
 import KanbanBoard from "views/emp/kanban";
 import CalendarPage from "views/calendar";
+import TasksPage from "views/emp/tasks";
 
 
 
@@ -56,6 +59,13 @@ const routesForEmp = [
     icon: <FaRegCalendarAlt className="h-6 w-6" />,
     path: "calendar",
     component: <CalendarPage />,
+  },
+  {
+    name: "Tasks",
+    layout: "/emp",
+    icon: <MdOutlineTaskAlt className="h-6 w-6" />,
+    path: "tasks",
+    component: <TasksPage />,
   },
   {
     name: "Teams",

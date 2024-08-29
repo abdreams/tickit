@@ -11,10 +11,10 @@ const App = () => {
       <Route path="auth/*" element={<AuthLayout />} />
       <Route path="admin/*" element={<AdminLayout />} />
       <Route path="emp/*" element={<EmpLayout />} />
-      <Route path="rtl/*" element={<RtlLayout />} />
+      <Route path="rtl/*" element={<RtlLayout />} />  
       <Route path="/" element={<Navigate to="/auth/sign-in" replace />} />
     </Routes>
-  );
+    );
 };
 
 export default App;
