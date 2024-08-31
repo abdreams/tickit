@@ -9,6 +9,7 @@ import Profile from "views/admin/profile";
 import  UserManagement from "views/admin/usermanagement"
 import TeamManagement from "views/admin/teammanagement";
 // import RTLDefault from "views/rtl/default";
+import MyCalendar from "views/admin/calendar";
 
 
 
@@ -70,7 +71,8 @@ const routesForAdmin = [
     layout: "/admin",
     icon: <FaRegCalendarAlt className="h-6 w-6" />,
     path: "calendar",
-    component: <Calendar />,
+    // component: <Calendar />,
+    component: <MyCalendar />,
   },
   // {
   //   name: "Teams",

@@ -5,6 +5,7 @@ import RtlLayout from "layouts/rtl";
 import AdminLayout from "layouts/admin";
 import EmpLayout from "layouts/emp";
 import AuthLayout from "layouts/auth";
+import "react-big-calendar/lib/css/react-big-calendar.css"
 const App = () => {
   return (
     <Routes>
