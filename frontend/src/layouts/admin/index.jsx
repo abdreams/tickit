@@ -3,7 +3,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "components/navbar";
 import Sidebar from "components/sidebar";
 import Footer from "components/footer/Footer";
-import routes from "routes.js";
+import routesForAdmin from "routesForAdmin.js";
 
 export default function Admin(props) {
   const { ...rest } = props;
@@ -17,35 +17,35 @@ export default function Admin(props) {
     );
   }, []);
   React.useEffect(() => {
-    getActiveRoute(routes);
+    getActiveRoute(routesForAdmin);
   }, [location.pathname]);
 
-  const getActiveRoute = (routes) => {
+  const getActiveRoute = (routesForAdmin) => {
     let activeRoute = "Main Dashboard";
-    for (let i = 0; i < routes.length; i++) {
+    for (let i = 0; i < routesForAdmin.length; i++) {
       if (
         window.location.href.indexOf(
-          routes[i].layout + "/" + routes[i].path
+          routesForAdmin[i].layout + "/" + routesForAdmin[i].path
         ) !== -1
       ) {
-        setCurrentRoute(routes[i].name);
+        setCurrentRoute(routesForAdmin[i].name);
       }
     }
     return activeRoute;
   };
-  const getActiveNavbar = (routes) => {
+  const getActiveNavbar = (routesForAdmin) => {
     let activeNavbar = false;
-    for (let i = 0; i < routes.length; i++) {
+    for (let i = 0; i < routesForAdmin.length; i++) {
       if (
-        window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
+        window.location.href.indexOf(routesForAdmin[i].layout + routesForAdmin[i].path) !== -1
       ) {
-        return routes[i].secondary;
+        return routesForAdmin[i].secondary;
       }
     }
     return activeNavbar;
   };
-  const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
+  const getRoutes = (routesForAdmin) => {
+    return routesForAdmin.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route path={`/${prop.path}`} element={prop.component} key={key} />
@@ -72,12 +72,12 @@ export default function Admin(props) {
               onOpenSidenav={() => setOpen(true)}
               logoText={"Horizon UI Tailwind React"}
               brandText={currentRoute}
-              secondary={getActiveNavbar(routes)}
+              secondary={getActiveNavbar(routesForAdmin)}
               {...rest}
             />
             <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
               <Routes>
-                {getRoutes(routes)}
+                {(getRoutes(routesForAdmin))}
 
                 <Route
                   path="/"

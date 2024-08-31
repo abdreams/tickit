@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 
 import routes from "routes.js";
 import routesForEmp from "routesForEmp.js";
+import routesForAdmin from "routesForAdmin";
 
 const Sidebar = ({ open, onClose }) => {
   const location = useLocation();
@@ -13,7 +14,7 @@ const Sidebar = ({ open, onClose }) => {
 
   // Determine which routes to pass based on the current path for admin or emp
   const routesToPass =
-    currentPath.startsWith("/admin") ? routes : 
+    currentPath.startsWith("/admin") ? routesForAdmin : 
     currentPath.startsWith("/emp") ? routesForEmp : 
     routes; // Default to routes if neither path matches
 
