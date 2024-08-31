@@ -7,20 +7,20 @@ import {
 } from "react-table";
 import { AiOutlinePlus } from "react-icons/ai";
 import "tailwindcss/tailwind.css";
-import projectData from "../../../data/projects.json"; // Updated import path
+import taskData from "../../../data/tasks.json"; // Assuming task data is stored here
 
 const TasksPage = () => {
   const [statusFilter, setStatusFilter] = useState("");
-  const [createdByFilter, setCreatedByFilter] = useState("");
+  const [priorityFilter, setPriorityFilter] = useState("");
 
   const data = useMemo(
     () =>
-      projectData.filter(
-        (project) =>
-          (statusFilter === "" || project.status === statusFilter) &&
-          (createdByFilter === "" || project.created_by === createdByFilter)
+      taskData.filter(
+        (task) =>
+          (statusFilter === "" || task.status === statusFilter) &&
+          (priorityFilter === "" || task.priority === priorityFilter)
       ),
-    [statusFilter, createdByFilter]
+    [statusFilter, priorityFilter]
   );
 
   const columns = useMemo(
@@ -28,36 +28,20 @@ const TasksPage = () => {
       {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Project Name
+            Task Name
           </p>
         ),
-        accessor: "project_name",
-      },
-      {
-        Header: () => (
-          <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Team Assigned
-          </p>
-        ),
-        accessor: "team_assigned",
-      },
-      {
-        Header: () => (
-          <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Start Date
-          </p>
-        ),
-        accessor: "start_date",
-      },
-      {
-        Header: () => (
-          <p className="text-sm font-bold text-gray-600 dark:text-white">
-            End Date
-          </p>
-        ),
-        accessor: "end_date",
-      },
-      {
+        accessor: "task_name",
+    },
+    {
+      Header: () => (
+        <p className="text-sm font-bold text-gray-600 dark:text-white">
+          Project Name
+        </p>
+      ),
+      accessor: "project_name",
+    },
+    {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
             Status
@@ -68,19 +52,43 @@ const TasksPage = () => {
       {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Created By
+            Priority
           </p>
         ),
-        accessor: "created_by",
+        accessor: "priority",
       },
       {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Number of Tasks
+            Assigned By
           </p>
         ),
-        accessor: "number_of_tasks",
+        accessor: "assigned_by",
       },
+      {
+        Header: () => (
+          <p className="text-sm font-bold text-gray-600 dark:text-white">
+            Deadline Time
+          </p>
+        ),
+        accessor: "deadline_time",
+      },
+      {
+        Header: () => (
+          <p className="text-sm font-bold text-gray-600 dark:text-white">
+            Assigned At Time
+          </p>
+        ),
+        accessor: "assigned_at_time",
+      },
+    //   {
+    //     Header: () => (
+    //       <p className="text-sm font-bold text-gray-600 dark:text-white">
+    //         Description
+    //       </p>
+    //     ),
+    //     accessor: "description",
+    //   },
     ],
     []
   );
@@ -90,19 +98,19 @@ const TasksPage = () => {
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    page, // Use 'page' instead of 'rows' for pagination
+    page,
     canPreviousPage,
     canNextPage,
     pageOptions,
     nextPage,
     previousPage,
-    setGlobalFilter, // Add this line
+    setGlobalFilter,
     state: { pageIndex, globalFilter },
   } = useTable(
     {
       columns,
       data,
-      initialState: { pageIndex: 0, pageSize: 10 }, // Set pageSize to 10
+      initialState: { pageIndex: 0, pageSize: 10 },
     },
     useGlobalFilter,
     useSortBy,
@@ -116,7 +124,7 @@ const TasksPage = () => {
           value={globalFilter || ""}
           onChange={(e) => setGlobalFilter(e.target.value)}
           className="w-full rounded-md border p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white md:w-1/3"
-          placeholder="Search projects..."
+          placeholder="Search tasks..."
         />
         <div className="flex w-full space-x-4 md:w-auto">
           <select       
@@ -125,33 +133,29 @@ const TasksPage = () => {
             className="w-full rounded-md border p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white md:w-auto"
           >
             <option value="">Filter by Status</option>
-            <option value="Not Started">Not Started</option>
+            <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
-            <option value="On Hold">On Hold</option>
+            <option value="Done">Done</option>
           </select>
           <select
-            value={createdByFilter}
-            onChange={(e) => setCreatedByFilter(e.target.value)}
+            value={priorityFilter}
+            onChange={(e) => setPriorityFilter(e.target.value)}
             className="w-full rounded-md border p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white md:w-auto"
           >
-            <option value="">Filter by Created By</option>
-            <option value="John Doe">John Doe</option>
-            <option value="Jane Smith">Jane Smith</option>
-            <option value="Alice Johnson">Alice Johnson</option>
-            <option value="Bob Brown">Bob Brown</option>
-            <option value="Charlie White">Charlie White</option>
+            <option value="">Filter by Priority</option>
+            <option value="Urgent">Urgent</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
           </select>
         </div>
         <button className="flex w-full items-center rounded-md bg-blue-600 px-4 py-2 text-white md:w-auto">
           <AiOutlinePlus className="mr-2" />
-          Add New Project
+          Add New Task
         </button>
       </div>
 
       <div className="overflow-x-auto">
-        {" "}
-        {/* Added responsive container */}
         <table
           {...getTableProps()}
           className="min-w-full bg-white dark:bg-navy-800"
@@ -188,9 +192,7 @@ const TasksPage = () => {
                   {...row.getRowProps()}
                   className="cursor-pointer border-b border-gray-200 transition duration-200 ease-in-out hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-navy-700"
                   onClick={() =>
-                    console.log(
-                      `Clicked on project: ${row.original.project_name}`
-                    )
+                    console.log(`Clicked on task: ${row.original.task_name}`)
                   }
                 >
                   {row.cells.map((cell) => (
@@ -198,8 +200,6 @@ const TasksPage = () => {
                       {...cell.getCellProps()}
                       className="whitespace-nowrap px-4 py-2 dark:text-white"
                     >
-                      {" "}
-                      {/* Added 'whitespace-nowrap' */}
                       {cell.render("Cell")}
                     </td>
                   ))}
