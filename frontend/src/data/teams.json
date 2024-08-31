@@ -1,0 +1,282 @@
+[
+    {
+        "team_name" : "Team Alpha",
+        "amount" : 10000,
+        "date" : "2024-01-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Beta",
+        "amount" : 20000,
+        "date" : "2023-05-15",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Gamma",
+        "amount" : 15000,
+        "date" : "2024-02-01",
+        "status" : "Not Started",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "Team Delta",
+        "amount" : 30000,
+        "date" : "2023-03-10",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Epsilon",
+        "amount" : 25000,
+        "date" : "2024-04-15",
+        "status" : "On Hold",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Zeta",
+        "amount" : 18000,
+        "date" : "2024-05-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "Team Eta",
+        "amount" : 22000,
+        "date" : "2023-11-01",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Theta",
+        "amount" : 16000,
+        "date" : "2023-09-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Alpha",
+        "amount" : 10000,
+        "date" : "2024-01-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Beta",
+        "amount" : 20000,
+        "date" : "2023-05-15",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Gamma",
+        "amount" : 15000,
+        "date" : "2024-02-01",
+        "status" : "Not Started",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "Team Delta",
+        "amount" : 30000,
+        "date" : "2023-03-10",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Epsilon",
+        "amount" : 25000,
+        "date" : "2024-04-15",
+        "status" : "On Hold",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "Team Zeta",
+        "amount" : 18000,
+        "date" : "2024-05-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "Team Eta",
+        "amount" : 22000,
+        "date" : "2023-11-01",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamTheta",
+        "amount" : 16000,
+        "date" : "2023-09-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamAlpha",
+        "amount" : 10000,
+        "date" : "2024-01-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamBeta",
+        "amount" : 20000,
+        "date" : "2023-05-15",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamGamma",
+        "amount" : 15000,
+        "date" : "2024-02-01",
+        "status" : "Not Started",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "TeamDelta",
+        "amount" : 30000,
+        "date" : "2023-03-10",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamEpsilon",
+        "amount" : 25000,
+        "date" : "2024-04-15",
+        "status" : "On Hold",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamZeta",
+        "amount" : 18000,
+        "date" : "2024-05-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "TeamEta",
+        "amount" : 22000,
+        "date" : "2023-11-01",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamTheta",
+        "amount" : 16000,
+        "date" : "2023-09-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamAlpha",
+        "amount" : 10000,
+        "date" : "2024-01-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamBeta",
+        "amount" : 20000,
+        "date" : "2023-05-15",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamGamma",
+        "amount" : 15000,
+        "date" : "2024-02-01",
+        "status" : "Not Started",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "TeamDelta",
+        "amount" : 30000,
+        "date" : "2023-03-10",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamEpsilon",
+        "amount" : 25000,
+        "date" : "2024-04-15",
+        "status" : "On Hold",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamZeta",
+        "amount" : 18000,
+        "date" : "2024-05-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "TeamEta",
+        "amount" : 22000,
+        "date" : "2023-11-01",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamTheta",
+        "amount" : 16000,
+        "date" : "2023-09-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamAlpha",
+        "amount" : 10000,
+        "date" : "2024-01-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamBeta",
+        "amount" : 20000,
+        "date" : "2023-05-15",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamGamma",
+        "amount" : 15000,
+        "date" : "2024-02-01",
+        "status" : "Not Started",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "TeamDelta",
+        "amount" : 30000,
+        "date" : "2023-03-10",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamEpsilon",
+        "amount" : 25000,
+        "date" : "2024-04-15",
+        "status" : "On Hold",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamZeta",
+        "amount" : 18000,
+        "date" : "2024-05-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    },
+    {   
+        "team_name" : "TeamEta",
+        "amount" : 22000,
+        "date" : "2023-11-01",
+        "status" : "Completed",
+        "team_leader" : "John Doe"
+    },
+    {
+        "team_name" : "TeamTheta",
+        "amount" : 16000,
+        "date" : "2023-09-01",
+        "status" : "In Progress",
+        "team_leader" : "John Doe"
+    }
+]
