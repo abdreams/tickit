@@ -13,10 +13,6 @@ import SignUp from "views/auth/SignUp";
 
 
 
-
-
-
-
 const routes = [
   {
     name: "Sign In",

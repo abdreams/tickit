@@ -5,7 +5,7 @@ import RtlLayout from "layouts/rtl";
 import AdminLayout from "layouts/admin";
 import EmpLayout from "layouts/emp";
 import AuthLayout from "layouts/auth";
-import addNewProject from "views/emp/projects/addNewProject";
+import ProjLayout from "layouts/project";
 
 import "react-big-calendar/lib/css/react-big-calendar.css"
 const App = () => {
@@ -14,6 +14,7 @@ const App = () => {
       <Route path="auth/*" element={<AuthLayout />} />
       <Route path="admin/*" element={<AdminLayout />} />
       <Route path="emp/*" element={<EmpLayout />} />
+      <Route path="project/*" element={<ProjLayout />} />
       <Route path="rtl/*" element={<RtlLayout />} />  
       <Route path="/" element={<Navigate to="/auth/sign-in" replace />} />
     </Routes>
