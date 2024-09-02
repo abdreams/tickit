@@ -16,6 +16,7 @@ export default function Project(props) {
       window.innerWidth < 1200 ? setOpen(false) : setOpen(true)
     );
   }, []);
+
   React.useEffect(() => {
     getActiveRoute(routesForProj);
   }, [location.pathname]);
@@ -23,36 +24,38 @@ export default function Project(props) {
   const getActiveRoute = (routesForProj) => {
     let activeRoute = "Main Dashboard";
     for (let i = 0; i < routesForProj.length; i++) {
-      if (
-        window.location.href.indexOf(
-          routesForProj[i].layout + "/" + routesForProj[i].path
-        ) !== -1
-      ) {
+      const routePath = routesForProj[i].layout + "/" + routesForProj[i].path;
+      if (location.pathname.includes(routePath.split("/:projectId")[0])) {
         setCurrentRoute(routesForProj[i].name);
+        activeRoute = routesForProj[i].name;
       }
     }
     return activeRoute;
   };
+
   const getActiveNavbar = (routesForProj) => {
     let activeNavbar = false;
     for (let i = 0; i < routesForProj.length; i++) {
-      if (
-        window.location.href.indexOf(routesForProj[i].layout + routesForProj[i].path) !== -1
-      ) {
+      const routePath = routesForProj[i].layout + "/" + routesForProj[i].path;
+      if (location.pathname.includes(routePath.split("/:projectId")[0])) {
         return routesForProj[i].secondary;
       }
     }
     return activeNavbar;
   };
+
   const getRoutes = (routesForProj) => {
     return routesForProj.map((prop, key) => {
       if (prop.layout === "/project") {
         return (
-          <Route path={`/${prop.path}`} element={prop.component} key={key} />
+          <Route
+            path={`${prop.path}`}
+            element={prop.component}
+            key={key}
+          />
         );
-      } else {
-        return null;
       }
+      return null;
     });
   };
 
@@ -75,13 +78,13 @@ export default function Project(props) {
               secondary={getActiveNavbar(routesForProj)}
               {...rest}
             />
-            <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
+            <div className="pt-5 mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
               <Routes>
                 {getRoutes(routesForProj)}
-
+                {/* Default redirect to main dashboard */}
                 <Route
-                  path="/"
-                  element={<Navigate to="/project/default" replace />}
+                  path="/project/:projectId/*"
+                  element={<Navigate to="/project/:projectId/default" replace />}
                 />
               </Routes>
             </div>

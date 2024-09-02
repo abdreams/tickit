@@ -1,18 +1,14 @@
 import React, { useState, useMemo } from "react";
-import {
-  useTable,
-  useSortBy,
-  usePagination,
-  useGlobalFilter,
-} from "react-table";
+import { useTable, useSortBy, usePagination, useGlobalFilter } from "react-table";
 import { AiOutlinePlus } from "react-icons/ai";
 import "tailwindcss/tailwind.css";
-import projectData from "../../../data/projects.json"; // Updated import path
-import { Link } from "react-router-dom";
+import projectData from "../../../data/projects.json";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 
 const ProjectsPage = () => {
   const [statusFilter, setStatusFilter] = useState("");
   const [createdByFilter, setCreatedByFilter] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const data = useMemo(
     () =>
@@ -97,18 +93,22 @@ const ProjectsPage = () => {
     pageOptions,
     nextPage,
     previousPage,
-    setGlobalFilter, // Add this line
+    setGlobalFilter,
     state: { pageIndex, globalFilter },
   } = useTable(
     {
       columns,
       data,
-      initialState: { pageIndex: 0, pageSize: 10 }, // Set pageSize to 10
+      initialState: { pageIndex: 0, pageSize: 10 },
     },
     useGlobalFilter,
     useSortBy,
     usePagination
   );
+
+  const handleRowClick = (project_uid) => {
+    navigate(`/project/${project_uid}/default`);
+  };
 
   return (
     <div className="p-4 md:p-8">
@@ -120,7 +120,7 @@ const ProjectsPage = () => {
           placeholder="Search projects..."
         />
         <div className="flex w-full space-x-4 md:w-auto">
-          <select       
+          <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
             className="w-full rounded-md border p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white md:w-auto"
@@ -146,13 +146,11 @@ const ProjectsPage = () => {
         </div>
         <button className="flex w-full items-center rounded-md bg-blue-600 px-4 py-2 text-white md:w-auto">
           <AiOutlinePlus className="mr-2" />
-          <Link to="/emp/projects/new">Add New Project</Link> {/* Updated Link path */}
+          <Link to="/emp/projects/new">Add New Project</Link>
         </button>
       </div>
 
       <div className="overflow-x-auto">
-        {" "}
-        {/* Added responsive container */}
         <table
           {...getTableProps()}
           className="min-w-full bg-white dark:bg-navy-800"
@@ -188,19 +186,13 @@ const ProjectsPage = () => {
                 <tr
                   {...row.getRowProps()}
                   className="cursor-pointer border-b border-gray-200 transition duration-200 ease-in-out hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-navy-700"
-                  onClick={() =>
-                    console.log(
-                      `Clicked on project: ${row.original.project_name}`
-                    )
-                  }
+                  onClick={() => handleRowClick(row.original.project_uid)} // Use project UID here
                 >
                   {row.cells.map((cell) => (
                     <td
                       {...cell.getCellProps()}
                       className="whitespace-nowrap px-4 py-2 dark:text-white"
                     >
-                      {" "}
-                      {/* Added 'whitespace-nowrap' */}
                       {cell.render("Cell")}
                     </td>
                   ))}
