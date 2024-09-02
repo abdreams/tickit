@@ -14,9 +14,11 @@ const Sidebar = ({ open, onClose }) => {
 
   // Determine which routes to pass based on the current path for admin or emp
   const routesToPass =
-    currentPath.startsWith("/admin") ? routesForAdmin : 
-    currentPath.startsWith("/emp") ? routesForEmp : 
-    routes; // Default to routes if neither path matches
+    currentPath.startsWith("/admin")
+      ? routesForAdmin
+      : currentPath.startsWith("/emp")
+      ? routesForEmp.filter((route) => !route.hidden) // Filter out hidden routes
+      : routes;
 
   return (
     <div

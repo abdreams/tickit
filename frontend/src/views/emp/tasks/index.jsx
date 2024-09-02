@@ -6,8 +6,7 @@ import {
   useGlobalFilter,
 } from "react-table";
 import { AiOutlinePlus } from "react-icons/ai";
-import "tailwindcss/tailwind.css";
-import taskData from "../../../data/tasks.json"; // Assuming task data is stored here
+import taskData from "../../../data/tasks.json";
 
 const TasksPage = () => {
   const [statusFilter, setStatusFilter] = useState("");
@@ -214,7 +213,7 @@ const TasksPage = () => {
         <button
           onClick={() => previousPage()}
           disabled={!canPreviousPage}
-          className="rounded-md border bg-gray-100 p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white"
+          className="rounded-md border bg-gray-100 p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white cursor-pointer disabled:cursor-not-allowed"
         >
           Previous
         </button>
@@ -227,7 +226,7 @@ const TasksPage = () => {
         <button
           onClick={() => nextPage()}
           disabled={!canNextPage}
-          className="rounded-md border bg-gray-100 p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white"
+          className="rounded-md border bg-gray-100 p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white cursor-pointer disabled:cursor-not-allowed"
         >
           Next
         </button>

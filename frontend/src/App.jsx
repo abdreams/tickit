@@ -5,6 +5,8 @@ import RtlLayout from "layouts/rtl";
 import AdminLayout from "layouts/admin";
 import EmpLayout from "layouts/emp";
 import AuthLayout from "layouts/auth";
+import addNewProject from "views/emp/projects/addNewProject";
+
 import "react-big-calendar/lib/css/react-big-calendar.css"
 const App = () => {
   return (
