@@ -8,6 +8,7 @@ import {
 import { AiOutlinePlus } from "react-icons/ai";
 import "tailwindcss/tailwind.css";
 import projectData from "../../../data/projects.json"; // Updated import path
+import { Link } from "react-router-dom";
 
 const ProjectsPage = () => {
   const [statusFilter, setStatusFilter] = useState("");
@@ -145,7 +146,7 @@ const ProjectsPage = () => {
         </div>
         <button className="flex w-full items-center rounded-md bg-blue-600 px-4 py-2 text-white md:w-auto">
           <AiOutlinePlus className="mr-2" />
-          Add New Project
+          <Link to="/emp/projects/new">Add New Project</Link> {/* Updated Link path */}
         </button>
       </div>
 

@@ -85,7 +85,7 @@ const routesForEmp = [
   {
     name: "add new project",
     layout: "/emp",
-    path: "/projects/add",
+    path: "/projects/new",
     // icon: <MdLock className="h-6 w-6" />,
     component: <AddNewProject />,
     secondary: true,
