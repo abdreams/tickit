@@ -1,5 +1,4 @@
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-//import User from 'postgresql://startup_owner:M8dpQA2riLmj@ep-jolly-snowflake-a1jdfxct.ap-southeast-1.aws.neon.tech/startup?sslmode=require';
 
 const googleClientID = process.env.google_client_id || " ";
 const googleClientSecret = process.env.google_client_secret || " ";
