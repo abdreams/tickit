@@ -21,6 +21,7 @@ export function SidebarLinks(props) {
         route.layout === "/admin" ||
         route.layout === "/auth" ||
         route.layout === "/emp" ||
+        route.layout === "/project" ||
         route.layout === "/rtl"
       ) {
         return (

@@ -1,11 +1,11 @@
 import React from "react";
 
-// Emp Imports
+// project Imports
 
-import MainDashboard from "views/emp/default";
-import ProjectsPage from "views/emp/projects";
-import Profile from "views/emp/profile";
-import DataTables from "views/emp/tables";
+import MainDashboard from "views/project/default";
+import ProjectsPage from "views/project/projects";
+import Profile from "views/project/profile";
+import DataTables from "views/project/tables";
 
 
 
@@ -24,24 +24,24 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
 import { MdOutlineTaskAlt } from "react-icons/md";
 
-import KanbanBoard from "views/emp/kanban";
+import KanbanBoard from "views/project/kanban";
 import CalendarPage from "views/calendar";
-import TasksPage from "views/emp/tasks";
-import AddNewProject from "views/emp/projects/addNewProject";
+import TasksPage from "views/project/tasks";
+import AddNewProject from "views/project/projects/addNewProject";
 
 
 
-const routesForEmp = [
+const routesForProj = [
   {
     name: "Dashboard",
-    layout: "/emp",
+    layout: "/project",
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
   },
   {
     name: "Projects",
-    layout: "/emp",
+    layout: "/project",
     path: "projects",
     icon: <GoProjectRoadmap className="h-6 w-6" />,
     component: <ProjectsPage />,
@@ -49,42 +49,42 @@ const routesForEmp = [
   },
   {
     name: "Work Board",
-    layout: "/emp",
+    layout: "/project",
     icon: <LuKanbanSquare className="h-6 w-6" />,
     path: "work-board",
     component: <KanbanBoard />,
   },
   {
     name: "Calendar",
-    layout: "/emp",
+    layout: "/project",
     icon: <FaRegCalendarAlt className="h-6 w-6" />,
     path: "calendar",
     component: <CalendarPage />,
   },
   {
     name: "Tasks",
-    layout: "/emp",
+    layout: "/project",
     icon: <MdOutlineTaskAlt className="h-6 w-6" />,
     path: "tasks",
     component: <TasksPage />,
   },
   {
     name: "Teams",
-    layout: "/emp",
+    layout: "/project",
     icon: <IoPeopleOutline className="h-6 w-6" />,
     path: "teams",
     component: <DataTables />,
   },
   {
     name: "Profile",
-    layout: "/emp",
+    layout: "/project",
     path: "profile",
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />,
   },
   {
     name: "add new project",
-    layout: "/emp",
+    layout: "/project",
     path: "/projects/new",
     // icon: <MdLock className="h-6 w-6" />,
     component: <AddNewProject />,
@@ -100,4 +100,4 @@ const routesForEmp = [
   //   component: <RTLDefault />,
   // },
 ];
-export default routesForEmp;
+export default routesForProj;

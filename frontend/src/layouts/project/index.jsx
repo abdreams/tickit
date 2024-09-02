@@ -3,9 +3,9 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "components/navbar";
 import Sidebar from "components/sidebar";
 import Footer from "components/footer/Footer";
-import routesForAdmin from "routesForAdmin.js";
+import routesForProj from "routesForProj.js";
 
-export default function Admin(props) {
+export default function Project(props) {
   const { ...rest } = props;
   const location = useLocation();
   const [open, setOpen] = React.useState(true);
@@ -17,36 +17,36 @@ export default function Admin(props) {
     );
   }, []);
   React.useEffect(() => {
-    getActiveRoute(routesForAdmin);
+    getActiveRoute(routesForProj);
   }, [location.pathname]);
 
-  const getActiveRoute = (routesForAdmin) => {
+  const getActiveRoute = (routesForProj) => {
     let activeRoute = "Main Dashboard";
-    for (let i = 0; i < routesForAdmin.length; i++) {
+    for (let i = 0; i < routesForProj.length; i++) {
       if (
         window.location.href.indexOf(
-          routesForAdmin[i].layout + "/" + routesForAdmin[i].path
+          routesForProj[i].layout + "/" + routesForProj[i].path
         ) !== -1
       ) {
-        setCurrentRoute(routesForAdmin[i].name);
+        setCurrentRoute(routesForProj[i].name);
       }
     }
     return activeRoute;
   };
-  const getActiveNavbar = (routesForAdmin) => {
+  const getActiveNavbar = (routesForProj) => {
     let activeNavbar = false;
-    for (let i = 0; i < routesForAdmin.length; i++) {
+    for (let i = 0; i < routesForProj.length; i++) {
       if (
-        window.location.href.indexOf(routesForAdmin[i].layout + routesForAdmin[i].path) !== -1
+        window.location.href.indexOf(routesForProj[i].layout + routesForProj[i].path) !== -1
       ) {
-        return routesForAdmin[i].secondary;
+        return routesForProj[i].secondary;
       }
     }
     return activeNavbar;
   };
-  const getRoutes = (routesForAdmin) => {
-    return routesForAdmin.map((prop, key) => {
-      if (prop.layout === "/admin") {
+  const getRoutes = (routesForProj) => {
+    return routesForProj.map((prop, key) => {
+      if (prop.layout === "/project") {
         return (
           <Route path={`/${prop.path}`} element={prop.component} key={key} />
         );
@@ -72,16 +72,16 @@ export default function Admin(props) {
               onOpenSidenav={() => setOpen(true)}
               logoText={"Horizon UI Tailwind React"}
               brandText={currentRoute}
-              secondary={getActiveNavbar(routesForAdmin)}
+              secondary={getActiveNavbar(routesForProj)}
               {...rest}
             />
             <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
               <Routes>
-                {(getRoutes(routesForAdmin))}
+                {getRoutes(routesForProj)}
 
                 <Route
                   path="/"
-                  element={<Navigate to="/admin/default" replace />}
+                  element={<Navigate to="/project/default" replace />}
                 />
               </Routes>
             </div>
