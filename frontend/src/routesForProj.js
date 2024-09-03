@@ -1,7 +1,6 @@
 import React from "react";
 
 // Project Imports
-import MainDashboard from "views/project/default";
 import ProjectsPage from "views/project/projects";
 import Profile from "views/project/profile";
 import DataTables from "views/project/tables";
@@ -17,6 +16,7 @@ import KanbanBoard from "views/project/kanban";
 import CalendarPage from "views/calendar";
 import TasksPage from "views/project/tasks";
 import AddNewProject from "views/project/projects/addNewProject";
+import ProjectDashboard from "views/project/dashboard";
 
 const routesForProj = [
   {
@@ -24,7 +24,7 @@ const routesForProj = [
     layout: "/project",
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
-    component: <MainDashboard />,
+    component: <ProjectDashboard />,
   },
   {
     name: "Projects",
