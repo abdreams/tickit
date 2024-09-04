@@ -1,9 +1,23 @@
-const express = require('express');
-const app = express();
-require('dotenv').config()
+import  express from 'express';
+
+import 'dotenv/config' 
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
+const app = express();
+import cookieParser from 'cookie-parser';
+
+app.use(cookieParser());
+
+
+
+import authRoutes from './routes/auth/authRoutes.js'
+
+app.use(express.json());
+
+// auth routes 
+app.use('/api/auth',authRoutes)
+
+app.get('/api', (req, res) => {
   res.send('Hello, World!');
 });
 
