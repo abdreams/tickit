@@ -5,13 +5,13 @@ const localizer = momentLocalizer(moment)
 
 const events = [
     {
-        start : moment('2024-09-01T08:00:00').toDate(),
-        end : moment('2024-09-01T10:00:00').toDate(),
+        start : moment('2024-09-02T08:00:00').toDate(),
+        end : moment('2024-09-02T10:00:00').toDate(),
         title : "Workshop"
     },
     {
-        start : moment('2024-09-01T10:00:00').toDate(),
-        end : moment('2024-09-01T12:00:00').toDate(),
+        start : moment('2024-09-02T10:00:00').toDate(),
+        end : moment('2024-09-02T12:00:00').toDate(),
         title : "Meeting"
     }
 ]
