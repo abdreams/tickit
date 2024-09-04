@@ -176,7 +176,7 @@ const TasksPage = () => {
                         ? column.isSortedDesc
                           ? " 🔽"
                           : " 🔼"
-                        : ""}
+                        : " "}
                     </span>
                   </th>
                 ))}
