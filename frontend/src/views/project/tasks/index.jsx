@@ -7,10 +7,30 @@ import {
 } from "react-table";
 import { AiOutlinePlus } from "react-icons/ai";
 import taskData from "../../../data/tasks.json";
+import moment from "moment"; // for date handling
 
 const TasksPage = () => {
   const [statusFilter, setStatusFilter] = useState("");
   const [priorityFilter, setPriorityFilter] = useState("");
+
+  // Utility function to calculate time remaining
+  const getTimeRemaining = (deadline) => {
+    const now = moment();
+    const deadlineTime = moment(deadline);
+    const duration = moment.duration(deadlineTime.diff(now));
+
+    const days = Math.floor(duration.asDays());
+    const hours = Math.floor(duration.asHours() % 24);
+    const minutes = Math.floor(duration.asMinutes() % 60);
+
+    if (days > 0) {
+      return `${days} day${days > 1 ? "s" : ""} ${hours} hour${hours !== 1 ? "s" : ""}`;
+    } else if (hours > 0) {
+      return `${hours} hour${hours !== 1 ? "s" : ""}`;
+    } else {
+      return `${minutes} min${minutes !== 1 ? "s" : ""}`;
+    }
+  };
 
   const data = useMemo(
     () =>
@@ -31,16 +51,8 @@ const TasksPage = () => {
           </p>
         ),
         accessor: "task_name",
-    },
-    {
-      Header: () => (
-        <p className="text-sm font-bold text-gray-600 dark:text-white">
-          Project Name
-        </p>
-      ),
-      accessor: "project_name",
-    },
-    {
+      },
+      {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
             Status
@@ -67,27 +79,21 @@ const TasksPage = () => {
       {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Deadline Time
+            Time Remaining
           </p>
         ),
         accessor: "deadline_time",
+        Cell: ({ value }) => {
+          const remainingTime = getTimeRemaining(value);
+          const isLessThan2Hours = moment(value).diff(moment(), "hours") < 2;
+
+          return (
+            <span style={{ color: isLessThan2Hours ? "red" : "inherit" }}>
+              {remainingTime}
+            </span>
+          );
+        },
       },
-      {
-        Header: () => (
-          <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Assigned At Time
-          </p>
-        ),
-        accessor: "assigned_at_time",
-      },
-    //   {
-    //     Header: () => (
-    //       <p className="text-sm font-bold text-gray-600 dark:text-white">
-    //         Description
-    //       </p>
-    //     ),
-    //     accessor: "description",
-    //   },
     ],
     []
   );
@@ -126,7 +132,7 @@ const TasksPage = () => {
           placeholder="Search tasks..."
         />
         <div className="flex w-full space-x-4 md:w-auto">
-          <select       
+          <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
             className="w-full rounded-md border p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white md:w-auto"
