@@ -7,7 +7,7 @@
       "project_name": "Website Redesign",
       "deadline_time": "2024-09-10 14:00",
       "assigned_at_time": "2024-08-20 09:30",
-      "description": "Create a responsive landing page design based on the new branding guidelines."
+      "description": "Create a responsive landing page design based on the new branding guidelines. Integrate the new backend API into the mobile app."
     },
     {
       "task_name": "Backend API Integration",

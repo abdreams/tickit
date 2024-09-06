@@ -7,11 +7,37 @@ import {
 } from "react-table";
 import { AiOutlinePlus } from "react-icons/ai";
 import taskData from "../../../data/tasks.json";
-import { Doughnut } from "react-chartjs-2";
 import moment from "moment"; // for date handling
 import { FaCircle } from "react-icons/fa";
 import TimeTracking from "./components/TimeTracking";
 import ProgressDonut from "./components/ProgressDonut";
+
+const projects = [
+  {
+    name: "UX research",
+    progress: 100,
+    deadline: "Aug 22, 2023",
+    users: ["https://cdn.pixabay.com/photo/2023/04/21/15/42/portrait-7942151_640.jpg", "https://i.pinimg.com/236x/a7/da/74/a7da745a7bab241d4ef4c389cd898d26.jpg"],
+  },
+  {
+    name: "Design",
+    progress: 80,
+    deadline: "Aug 22, 2023",
+    users: ["https://cdn.pixabay.com/photo/2023/04/21/15/42/portrait-7942151_640.jpg", "https://i.pinimg.com/236x/a7/da/74/a7da745a7bab241d4ef4c389cd898d26.jpg"],
+  },
+  {
+    name: "Design System",
+    progress: 80,
+    deadline: "Aug 22, 2023",
+    users: ["https://cdn.pixabay.com/photo/2023/04/21/15/42/portrait-7942151_640.jpg", "https://i.pinimg.com/236x/a7/da/74/a7da745a7bab241d4ef4c389cd898d26.jpg"],
+  },
+  {
+    name: "Development",
+    progress: 28,
+    deadline: "Aug 22, 2023",
+    users: ["https://cdn.pixabay.com/photo/2023/04/21/15/42/portrait-7942151_640.jpg", "https://i.pinimg.com/236x/a7/da/74/a7da745a7bab241d4ef4c389cd898d26.jpg"],
+  },
+];
 
 const TasksPage = () => {
   const [statusFilter, setStatusFilter] = useState("");
@@ -25,6 +51,8 @@ const TasksPage = () => {
         : [...prev, rowIndex]
     );
   };
+
+  
 
   // Utility function to calculate time remaining
   const getTimeRemaining = (deadline) => {
@@ -252,19 +280,35 @@ const TasksPage = () => {
                     ))}
                   </tr>
                   {expandedRows.includes(i) && (
-                    <tr className="expanded-content bg-white dark:bg-navy-800">
+                    <tr className="expanded-content border-b shadow-md bg-white dark:bg-navy-800">
+                      
                       <td colSpan={5} className="p-4">
-                        <div className="flex space-x-4">
+                        <div className="flex space-x-6">
                           {/* Task Description */}
                           <div className="w-1/2">
                             <h3 className="text-sm font-bold">
                               Description:{" "}
                             </h3>
-                            <p className="text-sm">
+                            <p className="text-sm ">
                               {row.original.description ||
                                 "No description available."}
                             </p>
                             <br />
+
+                            <div className="flex gap-x-2 -mt-2 mb-2">
+                              <p className="text-sm font-bold">Assignees: </p>
+                              <div className="flex -space-x-2 ">
+                              {projects.map((project, index) => project.users.map((user, userIndex) => (
+                                <img
+                                  key={userIndex}
+                                  src={user}
+                                  alt="User Avatar"
+                                  className="w-6 h-6 rounded-full border-2 border-white shadow"
+                                />
+                              )))}
+                            </div>
+                            </div>
+                           
                             <p className="text-sm font-bold">
                               Number of subtasks:{" "}
                               {row.original.subtasks || "N/A"}
@@ -296,7 +340,7 @@ const TasksPage = () => {
                           {/* Time Tracking */}
                           <div className="w-1/4 px-6">
                        
-                          <p className="text-sm font-bold mb-2">Time Tracking: </p>
+                          <p className="text-sm font-bold mb-4">Time Tracking: </p>
                           <TimeTracking loggedHours={3} overEstimateHours={1} remainingHours={3} />
                           </div>
 
@@ -307,6 +351,10 @@ const TasksPage = () => {
                             <h3 className="text-sm font-bold mb-2">Progress: </h3>
                             <ProgressDonut progress={80} />
                           </div>
+                          {/* Open in new tab icon */}
+                          <svg className="cursor-pointer" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                            <path d="M 5 3 C 3.9069372 3 3 3.9069372 3 5 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 19 21 C 20.093063 21 21 20.093063 21 19 L 21 12 L 19 12 L 19 19 L 5 19 L 5 5 L 12 5 L 12 3 L 5 3 z M 14 3 L 14 5 L 17.585938 5 L 8.2929688 14.292969 L 9.7070312 15.707031 L 19 6.4140625 L 19 10 L 21 10 L 21 3 L 14 3 z"></path>
+                          </svg>
                         </div>
                       </td>
                     </tr>
