@@ -8,6 +8,7 @@ import routes from "routes.js";
 import routesForEmp from "routesForEmp.js";
 import routesForAdmin from "routesForAdmin";
 import routesForProj from "routesForProj.js";
+import routesForTask from "routesForTask.js";
 
 const Sidebar = ({ open, onClose }) => {
   const location = useLocation();
@@ -20,7 +21,9 @@ const Sidebar = ({ open, onClose }) => {
     ? routesForEmp.filter((route) => !route.hidden) // Filter out hidden routes
     : currentPath.startsWith("/project")
     ? routesForProj.filter((route) => !route.hidden) // Filter out hidden routes
-    : routes;
+    : currentPath.startsWith("/task")
+    ? routesForTask.filter((route) => !route.hidden) // Filter out hidden routes
+    :routes;
 
   return (
     <div

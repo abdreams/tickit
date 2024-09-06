@@ -4,7 +4,7 @@ import DashIcon from "components/icons/DashIcon";
 
 export function SidebarLinks(props) {
   let location = useLocation();
-  let { projectId } = useParams();  // Extract projectId from the URL
+  let { projectId, taskId } = useParams();  // Extract both projectId and taskId from the URL
   const { routes } = props;
 
   // verifies if routeName is the one active (in browser input)
@@ -19,10 +19,14 @@ export function SidebarLinks(props) {
         route.layout === "/auth" ||
         route.layout === "/emp" ||
         route.layout === "/project" ||
+        route.layout === "/task" ||
         route.layout === "/rtl"
       ) {
+        // Determine full path based on projectId or taskId
         const fullPath = route.layout === "/project" && projectId 
           ? `/project/${projectId}/${route.path.replace(":projectId/", "")}`
+          : route.layout === "/task" && taskId 
+          ? `/task/${taskId}/${route.path.replace(":taskId/", "")}`
           : `${route.layout}/${route.path}`;
 
         return (
