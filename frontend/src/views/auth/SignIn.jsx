@@ -7,11 +7,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 export default function SignIn() {
 
   const { loginWithRedirect,loginWithPopup,isAuthenticated,logout,user } = useAuth0();
-  console.log(isAuthenticated)
-  console.log(user)
   
+  console.log(isAuthenticated)
   return (
-<>
+<div className="flex flex-col text-center mt-52">
     <button onClick={() => loginWithRedirect()}>Log In</button>
     <button onClick={()=> loginWithPopup()}>Log In with popup</button>
     <button onClick={()=> logout({returnTo:window.location.origin})}>Logout</button>
@@ -19,7 +18,7 @@ export default function SignIn() {
       isAuthenticated ? 'user is login' :'user is not logged in yet'
     }
 
-    </>
+    </div>
 
 
     // <div className=" flex h-full w-full items-center justify-center px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start shadow-2xl shadow-white/5 rounded bg-white dark:!bg-navy-800 ">
