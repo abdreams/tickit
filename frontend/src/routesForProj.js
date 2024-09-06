@@ -33,6 +33,7 @@ const routesForProj = [
     icon: <GoProjectRoadmap className="h-6 w-6" />,
     component: <ProjectsPage />,
     secondary: true,
+    hidden: true,
   },
   {
     name: "Work Board",
@@ -77,6 +78,14 @@ const routesForProj = [
     secondary: true,
     hidden: true,
   },
+  // {
+  //   name: "test",
+  //   layout: "/project",
+  //   path: "test",
+  //   component: <CustomWorkflow />,
+  //   // secondary: true,
+  //   // hidden: true,
+  // },
 ];
 
 export default routesForProj;
