@@ -28,7 +28,7 @@ const OverallProgress = () => {
         {/* Created Task */}
         <div className="flex flex-col items-start bg-gray-100 p-4 rounded-lg">
           <div className="flex items-center justify-between w-full mb-2">
-            <span className="text-sm ">Created task</span>
+            <span className="text-sm ">Total sub-tasks</span>
             <i className="fas fa-check-circle text-gray-400"></i>
           </div>
           <span className="text-lg font-bold text-gray-900">28</span>
@@ -37,7 +37,7 @@ const OverallProgress = () => {
         {/* Task in Progress */}
         <div className="flex flex-col items-start bg-gray-100 p-4 rounded-lg">
           <div className="flex items-center justify-between w-full mb-2">
-            <span className="text-sm ">Task in progress</span>
+            <span className="text-sm ">Sub-Tasks in progress</span>
             <i className="fas fa-play-circle text-gray-400"></i>
           </div>
           <span className="text-lg font-bold text-gray-900">10</span>
@@ -46,7 +46,7 @@ const OverallProgress = () => {
         {/* Upcoming Tasks */}
         <div className="flex flex-col items-start bg-gray-100 p-4 rounded-lg">
           <div className="flex items-center justify-between w-full mb-2">
-            <span className="text-sm ">Upcoming tasks</span>
+            <span className="text-sm ">Upcoming sub-tasks</span>
             <i className="fas fa-calendar-alt text-gray-400"></i>
           </div>
           <span className="text-lg font-bold text-gray-900">7</span>
