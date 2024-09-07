@@ -175,14 +175,21 @@ const KanbanBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedAssignees, setSelectedAssignees] = useState([]);
+  const [selectedPriorities, setSelectedPriorities] = useState([]);
+  const [selectedProjects, setSelectedProjects] = useState([]);
+  
 
-  // Extract unique assignees
+  // Extract unique assignees, priorities, and project names
   const assignees = new Set();
+  const priorities = new Set();
+  const projects = new Set();
+
   for (const task of Object.values(initialData.tasks)) {
     assignees.add(task.assignee);
+    priorities.add(task.priority);
+    projects.add(task.projectName);
   }
 
-  // Create the assignees array
   const allAssignees = [
     { value: "all", label: "All Assignees" },
     { value: "me", label: "My Tasks" },
@@ -191,6 +198,23 @@ const KanbanBoard = () => {
       label: assignee,
     })),
   ];
+
+  const priorityOptions = [
+    { value: null, label: "All Priorities" },
+    ...Array.from(priorities).map((priority) => ({
+      value: priority,
+      label: priority,
+    })),
+  ];
+  
+  const projectOptions = [
+    { value: null, label: "All Projects" },
+    ...Array.from(projects).map((project) => ({
+      value: project,
+      label: project,
+    })),
+  ];
+  
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
@@ -259,33 +283,51 @@ const KanbanBoard = () => {
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
-
   const handleAssigneeChange = (selectedOptions) => {
     setSelectedAssignees(selectedOptions || []);
   };
 
+  const handlePriorityChange = (selectedOptions) => {
+    setSelectedPriorities(selectedOptions || []);
+  };
+
+  const handleProjectChange = (selectedOptions) => {
+    setSelectedProjects(selectedOptions || []);
+  };
+
   const filteredTasks = Object.keys(data.tasks).reduce((result, taskId) => {
     const task = data.tasks[taskId];
-    const selectedValues = selectedAssignees.map((assignee) => assignee.value);
-
+    const selectedAssigneeValues = selectedAssignees.map((assignee) => assignee.value);
+  
     const isAssigneeSelected =
-      selectedValues.includes("all") ||
-      (selectedValues.includes("me") && task.assignee === currentUser) ||
+      selectedAssigneeValues.includes("all") ||
+      (selectedAssigneeValues.includes("me") && task.assignee === currentUser) ||
       selectedAssignees.length === 0 ||
-      selectedValues.includes(task.assignee);
-
+      selectedAssigneeValues.includes(task.assignee);
+  
+    const isPrioritySelected =
+      selectedPriorities.length === 0 ||
+      selectedPriorities.some((priority) => priority.value === task.priority);
+  
+    const isProjectSelected =
+      selectedProjects.length === 0 ||
+      selectedProjects.some((project) => project.value === task.projectName);
+  
     if (
       task.content.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      isAssigneeSelected
+      isAssigneeSelected &&
+      isPrioritySelected &&
+      isProjectSelected
     ) {
       result[taskId] = task;
     }
-
+  
     return result;
   }, {});
+  
 
   return (
-    <div>
+    <div className="mt-10">
       {/* Search and Filter UI */}
       <div className="mb-4 flex gap-8 ">
         <input
@@ -293,7 +335,7 @@ const KanbanBoard = () => {
           placeholder="Search ..."
           value={searchQuery}
           onChange={handleSearchChange}
-          className="rounded-lg border border-gray-600 p-2"
+          className="rounded-lg border border-gray-600 p-2 w-1/4"
         />
         <Select
           isMulti
@@ -301,7 +343,23 @@ const KanbanBoard = () => {
           value={selectedAssignees}
           onChange={handleAssigneeChange}
           placeholder="Filter by assignees..."
-          className="mt-0.5 w-1/2"
+          className="mt-0.5 w-1/4"
+        />
+        <Select
+          isMulti
+          options={priorityOptions}
+          value={selectedPriorities}
+          onChange={handlePriorityChange}
+          placeholder="Filter by priority..."
+          className="mt-0.5 w-1/4"
+        />
+        <Select
+          isMulti
+          options={projectOptions}
+          value={selectedProjects}
+          onChange={handleProjectChange}
+          placeholder="Filter by project..."
+          className="mt-0.5 w-1/4"
         />
       </div>
 
