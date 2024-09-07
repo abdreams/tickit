@@ -28,6 +28,7 @@ import KanbanBoard from "views/emp/kanban";
 import CalendarPage from "views/calendar";
 import TasksPage from "views/emp/tasks";
 import AddNewProject from "views/emp/projects/addNewProject";
+import EmployeeDashboard from "views/emp/dashboard";
 
 
 
@@ -37,7 +38,7 @@ const routesForEmp = [
     layout: "/emp",
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
-    component: <MainDashboard />,
+    component: <EmployeeDashboard />,
   },
   {
     name: "Projects",
