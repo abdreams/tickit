@@ -68,13 +68,13 @@ const routesForEmp = [
     path: "tasks",
     component: <TasksPage />,
   },
-  {
-    name: "Teams",
-    layout: "/emp",
-    icon: <IoPeopleOutline className="h-6 w-6" />,
-    path: "teams",
-    component: <DataTables />,
-  },
+  // {
+  //   name: "Teams",
+  //   layout: "/emp",
+  //   icon: <IoPeopleOutline className="h-6 w-6" />,
+  //   path: "teams",
+  //   component: <DataTables />,
+  // },
   {
     name: "Profile",
     layout: "/emp",

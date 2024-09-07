@@ -57,14 +57,14 @@ const routesForProj = [
     component: <TasksPage />,
   },
   {
-    name: "Teams",
+    name: "Documentation",
     layout: "/project",
     path: "teams",
     icon: <IoPeopleOutline className="h-6 w-6" />,
     component: <DataTables />,
   },
   {
-    name: "Profile",
+    name: "Attachments",
     layout: "/project",
     path: "profile",
     icon: <MdPerson className="h-6 w-6" />,
