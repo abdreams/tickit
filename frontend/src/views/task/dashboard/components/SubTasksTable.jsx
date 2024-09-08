@@ -7,10 +7,13 @@ import {
 } from "react-table";
 import { AiOutlinePlus } from "react-icons/ai";
 import taskData from "../../../../data/tasks.json";
+import TaskModal from "./modal";
 
 const SubTasksTable = () => {
   const [statusFilter, setStatusFilter] = useState("");
+  const [selectedTask, setSelectedTask] = useState(null);
   const [priorityFilter, setPriorityFilter] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const data = useMemo(
     () =>
@@ -22,25 +25,23 @@ const SubTasksTable = () => {
     [statusFilter, priorityFilter]
   );
 
+  const handleCardClick = (task) => {
+    console.log(task);
+    setSelectedTask(task);
+    setIsModalOpen(true);
+  };
+
   const columns = useMemo(
     () => [
       {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Task Name
+            Sub-Task Name
           </p>
         ),
         accessor: "task_name",
-    },
-    {
-      Header: () => (
-        <p className="text-sm font-bold text-gray-600 dark:text-white">
-          Project Name
-        </p>
-      ),
-      accessor: "project_name",
-    },
-    {
+      },
+      {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
             Status
@@ -59,35 +60,11 @@ const SubTasksTable = () => {
       {
         Header: () => (
           <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Assigned By
-          </p>
-        ),
-        accessor: "assigned_by",
-      },
-      {
-        Header: () => (
-          <p className="text-sm font-bold text-gray-600 dark:text-white">
             Deadline Time
           </p>
         ),
         accessor: "deadline_time",
       },
-      {
-        Header: () => (
-          <p className="text-sm font-bold text-gray-600 dark:text-white">
-            Assigned At Time
-          </p>
-        ),
-        accessor: "assigned_at_time",
-      },
-    //   {
-    //     Header: () => (
-    //       <p className="text-sm font-bold text-gray-600 dark:text-white">
-    //         Description
-    //       </p>
-    //     ),
-    //     accessor: "description",
-    //   },
     ],
     []
   );
@@ -126,7 +103,7 @@ const SubTasksTable = () => {
           placeholder="Search tasks..."
         />
         <div className="flex w-full space-x-4 md:w-auto">
-          <select       
+          <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
             className="w-full rounded-md border p-2 dark:border-gray-700 dark:bg-navy-800 dark:text-white md:w-auto"
@@ -190,9 +167,7 @@ const SubTasksTable = () => {
                 <tr
                   {...row.getRowProps()}
                   className="cursor-pointer border-b border-gray-200 transition duration-200 ease-in-out hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-navy-700"
-                  onClick={() =>
-                    console.log(`Clicked on task: ${row.original.task_name}`)
-                  }
+                  onClick={() => handleCardClick(row.original)} // Pass the task object to the handler
                 >
                   {row.cells.map((cell) => (
                     <td
@@ -231,6 +206,12 @@ const SubTasksTable = () => {
           Next
         </button>
       </div>
+
+      <TaskModal
+        task={selectedTask} // Pass the sub-task name to the modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
