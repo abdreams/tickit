@@ -7,6 +7,7 @@ import {
 } from "react-table";
 import { AiOutlinePlus } from "react-icons/ai";
 import taskData from "../../../../data/tasks.json";
+import { Link } from "react-router-dom";
 import TaskModal from "./modal";
 
 const SubTasksTable = () => {
@@ -127,7 +128,7 @@ const SubTasksTable = () => {
         </div>
         <button className="flex w-full items-center rounded-md bg-blue-600 px-4 py-2 text-white md:w-auto">
           <AiOutlinePlus className="mr-2" />
-          Add New Task
+          <Link to="/emp/subtasks/new">Add New Sub-Task</Link>
         </button>
       </div>
 
