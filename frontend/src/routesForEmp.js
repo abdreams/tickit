@@ -29,6 +29,7 @@ import CalendarPage from "views/calendar";
 import TasksPage from "views/emp/tasks";
 import AddNewProject from "views/emp/projects/addNewProject";
 import EmployeeDashboard from "views/emp/dashboard";
+import AddNewTask from "views/project/tasks/AddNewTask";
 
 
 
@@ -89,6 +90,15 @@ const routesForEmp = [
     path: "/projects/new",
     // icon: <MdLock className="h-6 w-6" />,
     component: <AddNewProject />,
+    secondary: true,
+    hidden: true, 
+  },
+  {
+    name: "add new task",
+    layout: "/emp",
+    path: "/tasks/new",
+    // icon: <MdLock className="h-6 w-6" />,
+    component: <AddNewTask />,
     secondary: true,
     hidden: true, 
   },
