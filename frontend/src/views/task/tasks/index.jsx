@@ -11,6 +11,7 @@ import moment from "moment"; // for date handling
 import { FaCircle } from "react-icons/fa";
 import TimeTracking from "./components/TimeTracking";
 import ProgressDonut from "./components/ProgressDonut";
+import { Link } from "react-router-dom";
 
 const projects = [
   {
@@ -227,7 +228,7 @@ const TasksPage = () => {
         </div>
         <button className="flex w-full items-center rounded-md bg-blue-600 px-4 py-2 text-white md:w-auto">
           <AiOutlinePlus className="mr-2" />
-          Add New Task
+          <Link to="/tasks/new">Add New Sub-task</Link>
         </button>
       </div>
 

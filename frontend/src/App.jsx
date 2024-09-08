@@ -24,6 +24,7 @@ const App = () => {
       <Route path="emp/*" element={<EmpLayout />  }  />
       <Route path="project/:projectId/*" element={ <ProjLayout /> }  /> 
       <Route path="task/:taskId/*" element= { <TaskLayout /> }  /> 
+      <Route path="task/*" element= { <TaskLayout /> }  /> 
       <Route path="rtl/*" element={<RtlLayout />  }  />
       <Route path="/" element={<Navigate to="/auth/sign-in" replace />} />
       {/* <Route path="/" element={<SignIn />} /> */}

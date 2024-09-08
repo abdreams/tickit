@@ -30,6 +30,7 @@ import TasksPage from "views/emp/tasks";
 import AddNewProject from "views/emp/projects/addNewProject";
 import EmployeeDashboard from "views/emp/dashboard";
 import AddNewTask from "views/project/tasks/AddNewTask";
+import AddNewSubTask from "views/task/tasks/AddNewSubTask";
 
 
 
@@ -101,6 +102,15 @@ const routesForEmp = [
     component: <AddNewTask />,
     secondary: true,
     hidden: true, 
+  },
+  {
+    name: "add new subtask",
+    layout: "/emp",
+    path: "/subtasks/new",
+    // icon: <RiAttachment2 className="h-6 w-6" />,
+    secondary: true,
+    component: <AddNewSubTask />,
+    hidden: true,
   },
 
   // {
