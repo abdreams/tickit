@@ -2,7 +2,8 @@ import React from "react";
 
 // Admin Imports
 
-import MainDashboard from "views/admin/default";
+// import MainDashboard from "views/admin/default";
+import Dashboard from "views/admin/default";
 import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
 // import DataTables from "views/admin/tables";
@@ -23,7 +24,8 @@ import { GoProjectRoadmap } from "react-icons/go";
 // import { LuKanbanSquare } from "react-icons/lu";
 import { FaRegCalendarAlt } from "react-icons/fa";
 // import { IoPeopleOutline } from "react-icons/io5";
-import { Calendar } from "react-calendar";
+
+// import { Calendar } from "react-calendar";
 import { HiUserGroup } from "react-icons/hi";
 import { LuUser2 } from "react-icons/lu";
 
@@ -35,7 +37,7 @@ const routesForAdmin = [
     layout: "/admin",
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
-    component: <MainDashboard />,
+    component: <Dashboard />,
   },
   {
     name: "Projects",
