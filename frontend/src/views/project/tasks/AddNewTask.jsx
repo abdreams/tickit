@@ -5,43 +5,62 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const AddNewTask = () => {
   const [formData, setFormData] = useState({
-    projectName: "",
-    projectDescription: "",
-    department: null,
-    team: null,
+    taskName: "",
+    taskDescription: "",
+    project: null,
+    assignedBy: { value: "Self", label: "Self" },
+    assignedEmployees: [],
     startDate: new Date(),
     endDate: new Date(),
+    estimatedTime: { hours: 0, days: 0 },
     criticality: "Low",
+    attachments: null,
+    comments: "",
   });
 
-  const departmentOptions = [
-    { value: "IT", label: "IT" },
-    { value: "HR", label: "HR" },
-    { value: "Marketing", label: "Marketing" },
-    { value: "Finance", label: "Finance" },
+  // Options for Select fields
+  const projectOptions = [
+    { value: "Project A", label: "Project A" },
+    { value: "Project B", label: "Project B" },
   ];
 
-  const teamOptions = [
-    { value: "Team A", label: "Team A" },
-    { value: "Team B", label: "Team B" },
-    { value: "Team C", label: "Team C" },
-    { value: "Team D", label: "Team D" },
+  const employeeOptions = [
+    { value: "Employee 1", label: "Employee 1" },
+    { value: "Employee 2", label: "Employee 2" },
+    { value: "Employee 3", label: "Employee 3" },
   ];
 
+  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // Handle select change
   const handleSelectChange = (selectedOption, actionMeta) => {
     setFormData({ ...formData, [actionMeta.name]: selectedOption });
   };
 
+  // Handle file change
+  const handleFileChange = (e) => {
+    setFormData({ ...formData, attachments: e.target.files[0] });
+  };
+
+  // Handle estimated time change
+  const handleEstimatedTimeChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      estimatedTime: { ...formData.estimatedTime, [name]: value },
+    });
+  };
+
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Dummy fetch request
-    fetch("https://example.com/api/projects", {
+    fetch("https://example.com/api/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -52,36 +71,33 @@ const AddNewTask = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center mt-10">
       <div className="w-full max-w-[900px] rounded-lg bg-white p-8 shadow-lg">
-        <h2 className="mb-6 text-center text-2xl font-bold ">
-          Add New Task
-        </h2>
+        <h2 className="mb-6 text-center text-2xl font-bold">Add New Task</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Task Name */}
           <div>
-            <label htmlFor="projectName" className="text-m block font-medium ">
-              Project Name
+            <label htmlFor="taskName" className="text-m block font-medium">
+              Task Name
             </label>
             <input
               type="text"
-              name="projectName"
-              value={formData.projectName}
+              name="taskName"
+              value={formData.taskName}
               onChange={handleChange}
               className="mt-1 block w-full rounded-md border border-gray-600 px-2 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               required
             />
           </div>
 
+          {/* Task Description */}
           <div>
-            <label
-              htmlFor="projectDescription"
-              className="text-m block font-medium "
-            >
-              Project Description
+            <label htmlFor="taskDescription" className="text-m block font-medium">
+              Task Description
             </label>
             <textarea
-              name="projectDescription"
-              value={formData.projectDescription}
+              name="taskDescription"
+              value={formData.taskDescription}
               onChange={handleChange}
               className="mt-1 block w-full rounded-md border border-gray-600 px-2 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               rows="3"
@@ -89,15 +105,16 @@ const AddNewTask = () => {
             />
           </div>
 
+          {/* Project Associated */}
           <div>
-            <label htmlFor="department" className="text-m block font-medium ">
-              Department
+            <label htmlFor="project" className="text-m block font-medium">
+              Project Associated
             </label>
             <Select
-              name="department"
-              value={formData.department}
+              name="project"
+              value={formData.project}
               onChange={handleSelectChange}
-              options={departmentOptions}
+              options={projectOptions}
               className="mt-1"
               classNamePrefix="react-select"
               isSearchable
@@ -105,20 +122,67 @@ const AddNewTask = () => {
             />
           </div>
 
+          {/* Assigned by (Default: Self) */}
           <div>
-            <label htmlFor="team" className="text-m block font-medium ">
-              Team Assigned
+            <label htmlFor="assignedBy" className="text-m block font-medium">
+              Assigned By
             </label>
             <Select
-              name="team"
-              value={formData.team}
+              name="assignedBy"
+              value={formData.assignedBy}
               onChange={handleSelectChange}
-              options={teamOptions}
+              options={[{ value: "Self", label: "Self" }, ...employeeOptions]}
               className="mt-1"
               classNamePrefix="react-select"
               isSearchable
               required
             />
+          </div>
+
+          {/* Assigned Employees (Multi-select) */}
+          <div>
+            <label htmlFor="assignedEmployees" className="text-m block font-medium">
+              Assigned Employees
+            </label>
+            <Select
+              name="assignedEmployees"
+              value={formData.assignedEmployees}
+              onChange={handleSelectChange}
+              options={employeeOptions}
+              className="mt-1"
+              classNamePrefix="react-select"
+              isMulti
+              isSearchable
+            />
+          </div>
+
+          {/* Estimated Time To Complete */}
+          <div className="flex gap-4">
+            <div>
+              <label htmlFor="hours" className="text-m block font-medium">
+                Estimated Time (Hours)
+              </label>
+              <input
+                type="number"
+                name="hours"
+                value={formData.estimatedTime.hours}
+                onChange={handleEstimatedTimeChange}
+                className="mt-1 block w-full rounded-md border border-gray-600 px-2 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="days" className="text-m block font-medium">
+                Estimated Time (Days)
+              </label>
+              <input
+                type="number"
+                name="days"
+                value={formData.estimatedTime.days}
+                onChange={handleEstimatedTimeChange}
+                className="mt-1 block w-full rounded-md border border-gray-600 px-2 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
           </div>
 
           <div className="flex items-center gap-20 ">
@@ -171,6 +235,34 @@ const AddNewTask = () => {
             </div>
           </div>
 
+          {/* Attachments */}
+          <div>
+            <label htmlFor="attachments" className="text-m block font-medium">
+              Attachments
+            </label>
+            <input
+              type="file"
+              name="attachments"
+              onChange={handleFileChange}
+              className="mt-1 block w-full rounded-md border border-gray-600 px-2 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            />
+          </div>
+
+          {/* Comments/Notes */}
+          <div>
+            <label htmlFor="comments" className="text-m block font-medium">
+              Comments/Notes
+            </label>
+            <textarea
+              name="comments"
+              value={formData.comments}
+              onChange={handleChange}
+              className="mt-1 block w-full rounded-md border border-gray-600 px-2 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              rows="3"
+            />
+          </div>
+
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
