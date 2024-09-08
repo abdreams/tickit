@@ -8,10 +8,14 @@ import routes from "routes.js";
 import routesForEmp from "routesForEmp.js";
 import routesForAdmin from "routesForAdmin";
 import routesForProj from "routesForProj.js";
+import routesForTask from "routesForTask.js";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Sidebar = ({ open, onClose }) => {
   const location = useLocation();
   const currentPath = location.pathname;
+  const {isAuthenticated,logout} = useAuth0();
+  console.log("side bar is authenticated",isAuthenticated)
 
   // Determine which routes to pass based on the current path for admin or emp
   const routesToPass = currentPath.startsWith("/admin")
@@ -20,7 +24,9 @@ const Sidebar = ({ open, onClose }) => {
     ? routesForEmp.filter((route) => !route.hidden) // Filter out hidden routes
     : currentPath.startsWith("/project")
     ? routesForProj.filter((route) => !route.hidden) // Filter out hidden routes
-    : routes;
+    : currentPath.startsWith("/task")
+    ? routesForTask.filter((route) => !route.hidden) // Filter out hidden routes
+    :routes;
 
   return (
     <div
@@ -46,7 +52,12 @@ const Sidebar = ({ open, onClose }) => {
       <ul className="mb-auto pt-1">
         
         <Links routes={routesToPass} />
+       
       </ul>
+      {
+          isAuthenticated && 
+        <button onClick={()=> logout({returnTo:window.location.origin})}>Logout</button>
+        }
 
       {/* Nav item end */}
     </div>

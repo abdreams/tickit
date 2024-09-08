@@ -15,8 +15,11 @@ import DailyTraffic from "views/admin/default/components/DailyTraffic";
 import TaskCard from "views/admin/default/components/TaskCard";
 import tableDataCheck from "./variables/tableDataCheck.json";
 import tableDataComplex from "./variables/tableDataComplex.json";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Dashboard = () => {
+  const { isAuthenticated } = useAuth0();
+  console.log(isAuthenticated)
   return (
     <div>
       {/* Card widget */}
