@@ -32,7 +32,7 @@ import EmployeeDashboard from "views/emp/dashboard";
 import AddNewTask from "views/project/tasks/AddNewTask";
 import AddNewSubTask from "views/task/tasks/AddNewSubTask";
 import TeamsPage from "views/emp/teams";
-
+import AddNewTeam from "views/emp/teams/AddNewTeam";
 
 
 const routesForEmp = [
@@ -78,6 +78,15 @@ const routesForEmp = [
     icon: <IoPeopleOutline className="h-6 w-6" />,
     path: "teams",
     component: <TeamsPage />,
+  },
+  {
+    name: "add new team",
+    layout: "/emp",
+    //icon: <IoPeopleOutline className="h-6 w-6" />,
+    path: "/teams/new",
+    component: <AddNewTeam />,
+    secondary: true,
+    hidden: true, 
   },
   {
     name: "Profile",
